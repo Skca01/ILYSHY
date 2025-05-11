@@ -551,6 +551,7 @@
             border: 1px solid var(--color-heart-light);
             background: linear-gradient(180deg, var(--color-peach), white);
         }
+
         .secret-message.show {
             transform: translate(-50%, -50%) scale(1);
             display: block;
@@ -603,12 +604,16 @@
             width: 100vw;
             height: 100vh;
             background: linear-gradient(to bottom, var(--color-peach), var(--color-bg));
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             transition: opacity 1.5s ease;
             overflow: hidden;
+        }
+
+        #intro-animation.active {
+            display: flex;
         }
 
         #intro-animation::before {
@@ -637,7 +642,7 @@
 
         #stem {
             stroke-dasharray: 120;
-            stroke-dashoffset: 150;
+            stroke-dashoffset: 120;
             animation: drawStem 2.5s ease-in-out forwards;
         }
 
@@ -813,6 +818,34 @@
             animation: heartbeat 1.5s infinite;
         }
 
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, var(--color-peach), var(--color-bg));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            text-align: center;
+        }
+
+        #welcome-screen h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #welcome-screen p {
+            font-size: 1rem;
+            max-width: 80%;
+            margin-bottom: 2rem;
+        }
+
         @media (max-width: 600px) {
             body {
                 font-size: 14px;
@@ -875,15 +908,29 @@
                 width: 120px;
                 height: 120px;
             }
+
+            #welcome-screen h1 {
+                font-size: 2rem;
+            }
+
+            #welcome-screen p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <audio id="bgm" loop preload="auto" autoplay>
+    <audio id="bgm" loop preload="auto">
         <source src="those_eyes.mp3" type="audio/mp3">
         <source src="https://filebin.net/fvajwx7vd1ef2x8d/those_eyes.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <div id="welcome-screen">
+        <h1>My Dearest Love</h1>
+        <p>A journey crafted from my heart to yours awaits. Click below to let our story unfold.</p>
+        <button id="begin-btn" class="btn">Begin Our Journey</button>
+    </div>
 
     <div id="intro-animation">
         <div class="bloom-effect" id="intro-bloom"></div>
@@ -1081,6 +1128,7 @@
         // Music control
         const bgm = document.getElementById('bgm');
         const musicToggle = document.getElementById('music-toggle');
+        const beginBtn = document.getElementById('begin-btn');
         const skipIntroBtn = document.getElementById('skip-intro');
         const startBtn = document.getElementById('start-btn');
         let isPlaying = false;
@@ -1122,32 +1170,39 @@
             }
         });
 
-        // Attempt to play music on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            playMusic();
-        });
-
         // Handle user interaction to ensure playback
         document.addEventListener('click', () => {
-            if (!isPlaying) playMusic();
+            if (!isPlaying && currentSection === 0) playMusic();
         }, { once: true });
 
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const introAnimation = document.getElementById('intro-animation');
+
+        beginBtn.addEventListener('click', startIntro);
         skipIntroBtn.addEventListener('click', startMainContent);
         startBtn.addEventListener('click', () => navigateTo(1));
 
         sections.forEach(section => section.classList.remove('active'));
 
-        const introAnimation = document.getElementById('intro-animation');
+        function startIntro() {
+            welcomeScreen.style.opacity = '0';
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                introAnimation.classList.add('active');
+                playMusic();
+                createIntroEffects();
+                setTimeout(startMainContent, 8000);
+            }, 500);
+        }
 
         function startMainContent() {
             introAnimation.style.opacity = '0';
             setTimeout(() => {
                 introAnimation.style.display = 'none';
+                introAnimation.classList.remove('active');
                 showSection(0);
             }, 1500);
         }
-
-        setTimeout(startMainContent, 8000);
 
         document.getElementById('to-memories-btn').addEventListener('click', () => navigateTo(2));
         document.getElementById('to-love-meter-btn').addEventListener('click', () => navigateTo(3));
@@ -1172,7 +1227,7 @@
 
             updateProgressBar();
 
-            // Hide music toggle if not in welcome section
+            // Show music toggle only in welcome section
             musicToggle.style.display = (index === 0) ? 'block' : 'none';
         }
 
@@ -1387,16 +1442,6 @@
 
         createHearts('welcome-hearts');
         createBloom('welcome-bloom');
-        createIntroEffects();
-
-        setInterval(() => {
-            const activeHearts = sections[currentSection].querySelector('.floating-hearts').id;
-            const activeBloom = sections[currentSection].querySelector('.bloom-effect').id;
-            createHearts(activeHearts);
-            createBloom(activeBloom);
-        }, 1500);
-
-        setInterval(createIntroEffects, 2000);
     </script>
 </body>
 </html>

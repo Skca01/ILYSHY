@@ -6,19 +6,19 @@
     <title>My Heart's Journey to You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@200;300;400;600&family=Playfair+Display:wght@400;700&family=Great_Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-heart: #ff8c94;
-            --color-heart-light: #ffe6ea;
-            --color-bg: #fff5f5;
-            --color-text: #2d2d3a;
-            --color-accent: #d81b60;
-            --color-light: #fff0f3;
-            --color-secondary: #ffd1d6;
-            --color-peach: #ffe4e1;
-            --shadow-soft: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-glow: 0 0 10px rgba(255, 140, 148, 0.3);
+            --color-heart: #e91e63;
+            --color-heart-light: #fce4ec;
+            --color-bg: #fff8f8;
+            --color-text: #2e2e2e;
+            --color-accent: #c2185b;
+            --color-light: #fff1f5;
+            --color-secondary: #f8bbd0;
+            --color-peach: #ffdede;
+            --shadow-soft: 0 8px 20px rgba(0,0,0,0.08);
+            --shadow-glow: 0 0 12px rgba(233, 30, 99, 0.3);
         }
 
         * {
@@ -28,14 +28,14 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, var(--color-bg), var(--color-peach));
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(180deg, var(--color-bg), var(--color-light));
             color: var(--color-text);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
             scroll-behavior: smooth;
             position: relative;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         body::before {
@@ -45,22 +45,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="none" stroke="%23ffe6ea" stroke-width="0.1" d="M10 5c-2 0-3 1-3 3s1 3 3 3 3-1 3-3-1-3-3-3z"/></svg>') repeat;
-            opacity: 0.1;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="none" stroke="%23fce4ec" stroke-width="0.2" d="M15 7c-2.5 0-4 1.5-4 4s1.5 4 4 4 4-1.5 4-4-1.5-4-4-4z"/></svg>') repeat;
+            opacity: 0.05;
             z-index: -1;
         }
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            20% { transform: scale(1.15); }
+            20% { transform: scale(1.2); }
             40% { transform: scale(1); }
-            60% { transform: scale(1.15); }
+            60% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
 
         @keyframes glow {
             0% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
+            50% { filter: brightness(1.3); }
             100% { filter: brightness(1); }
         }
 
@@ -70,22 +70,22 @@
         }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(10px); }
+            0% { opacity: 0; transform: translateY(15px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
         .heartbeat {
-            animation: heartbeat 1.4s ease-in-out infinite;
+            animation: heartbeat 1.5s ease-in-out infinite;
             color: var(--color-heart);
         }
 
         .glow {
-            animation: glow 2s ease-in-out infinite;
+            animation: glow 2.5s ease-in-out infinite;
         }
 
         .section {
             min-height: 100vh;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -93,11 +93,11 @@
             text-align: center;
             position: relative;
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            margin: 1rem;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            background: rgba(255,255,255,0.98);
+            border-radius: 25px;
+            margin: 1.5rem;
             box-shadow: var(--shadow-soft);
             border: 1px solid var(--color-heart-light);
             overflow: hidden;
@@ -111,65 +111,67 @@
         h1, h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--color-accent);
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: glow 2s ease-in-out infinite;
+            animation: glow 2.5s ease-in-out infinite;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             position: relative;
-            font-family: 'Parisienne', cursive;
+            font-family: 'Great Vibes', cursive;
+            color: var(--color-heart);
         }
 
         h2:after {
-            content: "✿";
+            content: "❁";
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--color-heart-light);
-            animation: heartbeat 1.4s infinite;
+            animation: heartbeat 1.5s infinite;
         }
 
         p {
-            font-size: 0.9rem;
-            max-width: 90%;
-            margin: 0 auto 1rem;
+            font-size: 1rem;
+            max-width: 85%;
+            margin: 0 auto 1.5rem;
             font-weight: 300;
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .btn {
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.9rem 1.8rem;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 500;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            transition: all 0.4s ease;
             border: none;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 1rem;
             box-shadow: var(--shadow-glow);
             position: relative;
             overflow: hidden;
             z-index: 1;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(216, 27, 96, 0.2);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(194, 24, 91, 0.2);
             background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
         }
 
@@ -180,8 +182,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
             z-index: -1;
         }
 
@@ -190,34 +192,34 @@
         }
 
         .divider {
-            width: 90%;
+            width: 85%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--color-heart-light), transparent);
-            margin: 2rem auto;
-            opacity: 0.7;
+            margin: 2.5rem auto;
+            opacity: 0.6;
             position: relative;
         }
 
         .divider::before {
-            content: '✿';
+            content: '❁';
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
             color: var(--color-heart);
-            font-size: 1.2rem;
-            animation: heartbeat 1.4s infinite;
+            font-size: 1.4rem;
+            animation: heartbeat 1.5s infinite;
         }
 
         .section::before {
             content: '♥';
             position: absolute;
-            top: 20px;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 3rem;
+            font-size: 4rem;
             color: var(--color-heart-light);
-            opacity: 0.08;
+            opacity: 0.06;
         }
 
         .heart {
@@ -226,23 +228,23 @@
 
         .firsts-list {
             text-align: left;
-            max-width: 90%;
-            margin: 2rem auto;
+            max-width: 85%;
+            margin: 2.5rem auto;
         }
 
         .firsts-list li {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             list-style-type: none;
             position: relative;
-            padding-left: 2.5rem;
+            padding-left: 3rem;
             opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.6s ease;
-            font-size: 0.9rem;
+            transform: translateX(-25px);
+            transition: all 0.8s ease;
+            font-size: 1rem;
             background: linear-gradient(90deg, var(--color-heart-light), transparent);
-            padding: 0.8rem 1rem 0.8rem 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            padding: 1rem 1.2rem 1rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
 
         .firsts-list li.show {
@@ -253,24 +255,24 @@
         .firsts-list li:before {
             content: "♥";
             position: absolute;
-            left: 0.8rem;
+            left: 1rem;
             color: var(--color-heart);
-            font-size: 1.2rem;
-            top: 0.8rem;
-            animation: heartbeat 1.4s infinite;
-            animation-delay: calc(var(--i) * 0.1s);
+            font-size: 1.4rem;
+            top: 1rem;
+            animation: heartbeat 1.5s infinite;
+            animation-delay: calc(var(--i) * 0.15s);
         }
 
         .memory-box {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin: 1.5rem auto;
-            max-width: 90%;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 85%;
             box-shadow: var(--shadow-soft);
             position: relative;
             transform: scale(0.95);
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
             opacity: 0;
             border: 1px solid var(--color-heart-light);
             background: linear-gradient(180deg, var(--color-peach), white);
@@ -282,7 +284,7 @@
         }
 
         .memory-box:hover {
-            transform: scale(1.01);
+            transform: scale(1.02);
             box-shadow: var(--shadow-glow);
         }
 
@@ -292,20 +294,20 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
-            border-radius: 15px 15px 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         .hidden-message {
             display: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             font-style: italic;
             color: var(--color-accent);
             opacity: 0;
-            transition: opacity 0.5s ease;
-            font-size: 0.85rem;
-            animation: fadeInUp 0.6s ease forwards;
+            transition: opacity 0.6s ease;
+            font-size: 0.9rem;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .memory-box:hover .hidden-message {
@@ -314,50 +316,50 @@
         }
 
         .love-meter-container {
-            width: 90%;
-            margin: 2rem auto;
-            padding: 1.5rem;
+            width: 85%;
+            margin: 2.5rem auto;
+            padding: 2rem;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: var(--shadow-soft);
             border: 1px solid var(--color-heart-light);
             position: relative;
         }
 
         .love-meter-container::before {
-            content: '✿';
+            content: '❁';
             position: absolute;
-            top: -20px;
+            top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--color-heart);
-            animation: heartbeat 1.4s infinite;
+            animation: heartbeat 1.5s infinite;
         }
 
         .meter-text {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
             color: var(--color-accent);
-            font-family: 'Caveat', cursive;
+            font-family: 'Great Vibes', cursive;
         }
 
         .counter {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             color: var(--color-heart);
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             font-family: 'Parisienne', cursive;
-            animation: glow 2s infinite;
+            animation: glow 2.5s infinite;
         }
 
         .meter-bar {
-            height: 12px;
+            height: 15px;
             background-color: var(--color-secondary);
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             position: relative;
         }
 
@@ -365,9 +367,9 @@
             height: 100%;
             width: 0;
             background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
-            border-radius: 6px;
-            transition: width 0.6s ease;
-            box-shadow: 0 0 10px var(--color-heart);
+            border-radius: 8px;
+            transition: width 0.8s ease;
+            box-shadow: 0 0 12px var(--color-heart);
             position: relative;
             overflow: hidden;
         }
@@ -379,31 +381,31 @@
             left: 0;
             width: 200%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 1.5s infinite;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: shimmer 2s infinite;
         }
 
         @keyframes float-up {
             0% { transform: translateY(0) scale(0); opacity: 1; }
-            100% { transform: translateY(-80px) scale(1.5); opacity: 0; }
+            100% { transform: translateY(-100px) scale(1.6); opacity: 0; }
         }
 
         .promise-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            max-width: 90%;
-            margin: 2rem auto;
+            gap: 2rem;
+            max-width: 85%;
+            margin: 2.5rem auto;
         }
 
         .promise-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 2rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-soft);
-            transform: translateY(20px);
+            transform: translateY(25px);
             opacity: 0;
-            transition: all 0.6s ease;
+            transition: all 0.8s ease;
             position: relative;
             border: 1px solid var(--color-heart-light);
             background: linear-gradient(180deg, var(--color-peach), white);
@@ -416,7 +418,7 @@
 
         .promise-card:hover {
             box-shadow: var(--shadow-glow);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
         .promise-card:before {
@@ -424,34 +426,34 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 6px;
             height: 100%;
             background: linear-gradient(to bottom, var(--color-heart), var(--color-peach));
         }
 
         .promise-card h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 1.4rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
             color: var(--color-accent);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         #final-letter {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            max-width: 90%;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 85%;
             box-shadow: var(--shadow-soft);
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             position: relative;
-            transform: perspective(800px) rotateX(-5deg);
-            transition: transform 0.6s ease;
+            transform: perspective(1000px) rotateX(-4deg);
+            transition: transform 0.8s ease;
             border: 1px solid var(--color-heart-light);
             background: linear-gradient(180deg, var(--color-peach), white);
         }
 
         #final-letter:hover {
-            transform: perspective(800px) rotateX(0);
+            transform: perspective(1000px) rotateX(0);
         }
 
         #final-letter:before {
@@ -460,31 +462,31 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 8px;
             background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
-            border-radius: 15px 15px 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         .letter-content {
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-align: left;
-            line-height: 1.8;
+            line-height: 2;
         }
 
         .letter-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-            animation-delay: calc(var(--i) * 0.3s);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: calc(var(--i) * 0.4s);
         }
 
         .signature {
             font-family: 'Parisienne', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--color-heart);
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             text-align: right;
-            animation: write 2s forwards;
+            animation: write 2.5s forwards;
         }
 
         @keyframes write {
@@ -506,27 +508,27 @@
             position: absolute;
             opacity: 0;
             color: var(--color-heart-light);
-            animation: float-up-particle 3s linear forwards;
+            animation: float-up-particle 4s linear forwards;
         }
 
         @keyframes float-up-particle {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.2); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(-150px) rotate(720deg) scale(1.2); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.3); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(-200px) rotate(720deg) scale(1.3); opacity: 0; }
         }
 
         .confetti {
             position: fixed;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             opacity: 0;
             z-index: 1000;
-            animation: confetti-fall 3s linear forwards;
+            animation: confetti-fall 3.5s linear forwards;
         }
 
         @keyframes confetti-fall {
-            0% { transform: translateY(-80px) rotate(0deg); opacity: 1; }
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
             100% { transform: translateY(100vh) rotate(1080deg); opacity: 0; }
         }
 
@@ -536,13 +538,13 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
             z-index: 1001;
-            max-width: 90%;
+            max-width: 85%;
             text-align: center;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s ease;
             display: none;
             border: 1px solid var(--color-heart-light);
             background: linear-gradient(180deg, var(--color-peach), white);
@@ -555,42 +557,42 @@
 
         .secret-message h3 {
             font-family: 'Parisienne', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--color-heart);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .close-message {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
             color: var(--color-text);
         }
 
         .progress-container {
             position: fixed;
-            top: 10px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            height: 6px;
-            background-color: rgba(255,255,255,0.8);
-            border-radius: 6px;
+            width: 85%;
+            height: 8px;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 8px;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
         .progress-bar {
             height: 100%;
             width: 0;
             background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
-            border-radius: 6px;
-            transition: width 0.4s ease;
-            box-shadow: 0 0 8px var(--color-heart);
+            border-radius: 8px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px var(--color-heart);
         }
 
         #intro-animation {
@@ -604,7 +606,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 1.5s ease;
+            transition: opacity 2s ease;
             overflow: hidden;
         }
 
@@ -615,27 +617,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 245, 245, 0.5), transparent);
+            background: radial-gradient(circle at center, rgba(255, 248, 248, 0.6), transparent);
             opacity: 0;
-            animation: pulseBackground 6s ease-in-out infinite;
+            animation: pulseBackground 7s ease-in-out infinite;
         }
 
         @keyframes pulseBackground {
             0% { opacity: 0; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.4; }
             100% { opacity: 0; }
         }
 
         #flower-svg {
-            width: 180px;
-            height: 180px;
-            filter: drop-shadow(0 5px 10px rgba(255, 140, 148, 0.3));
+            width: 200px;
+            height: 200px;
+            filter: drop-shadow(0 6px 12px rgba(233, 30, 99, 0.3));
         }
 
         #stem {
-            stroke-dasharray: 150;
-            stroke-dashoffset: 150;
-            animation: drawStem 2.5s ease-in-out forwards;
+            stroke-dasharray: 160;
+            stroke-dashoffset: 160;
+            animation: drawStem 3s ease-in-out forwards;
         }
 
         @keyframes drawStem {
@@ -644,58 +646,58 @@
 
         #bud {
             transform: scale(0);
-            animation: growBud 2.5s ease-in-out forwards 1s;
+            animation: growBud 3s ease-in-out forwards 1.2s;
         }
 
         @keyframes growBud {
             0% { transform: scale(0); }
-            80% { transform: scale(1.4); }
+            80% { transform: scale(1.5); }
             100% { transform: scale(1); }
         }
 
         .petal-group {
             transform: scale(0);
-            transform-origin: 90px 90px;
-            animation: unfurlPetal 2.5s ease-in-out forwards;
+            transform-origin: 100px 100px;
+            animation: unfurlPetal 3s ease-in-out forwards;
         }
 
-        .petal-group:nth-child(3) { animation-delay: 2.5s; }
-        .petal-group:nth-child(4) { animation-delay: 2.7s; }
-        .petal-group:nth-child(5) { animation-delay: 2.9s; }
-        .petal-group:nth-child(6) { animation-delay: 3.1s; }
-        .petal-group:nth-child(7) { animation-delay: 3.3s; }
-        .petal-group:nth-child(8) { animation-delay: 3.5s; }
-        .petal-group:nth-child(9) { animation-delay: 3.7s; }
-        .petal-group:nth-child(10) { animation-delay: 3.9s; }
-        .petal-group:nth-child(11) { animation-delay: 4.1s; }
-        .petal-group:nth-child(12) { animation-delay: 4.3s; }
+        .petal-group:nth-child(3) { animation-delay: 2.8s; }
+        .petal-group:nth-child(4) { animation-delay: 3s; }
+        .petal-group:nth-child(5) { animation-delay: 3.2s; }
+        .petal-group:nth-child(6) { animation-delay: 3.4s; }
+        .petal-group:nth-child(7) { animation-delay: 3.6s; }
+        .petal-group:nth-child(8) { animation-delay: 3.8s; }
+        .petal-group:nth-child(9) { animation-delay: 4s; }
+        .petal-group:nth-child(10) { animation-delay: 4.2s; }
+        .petal-group:nth-child(11) { animation-delay: 4.4s; }
+        .petal-group:nth-child(12) { animation-delay: 4.6s; }
 
         @keyframes unfurlPetal {
             0% { transform: scale(0) rotate(0deg); }
-            70% { transform: scale(1.3) rotate(360deg); }
+            70% { transform: scale(1.4) rotate(360deg); }
             100% { transform: scale(1) rotate(360deg); }
         }
 
         #heart-center {
             transform: scale(0);
-            animation: growHeart 1.8s ease-in-out forwards 4.5s;
+            animation: growHeart 2s ease-in-out forwards 5s;
         }
 
         @keyframes growHeart {
             0% { transform: scale(0); }
-            80% { transform: scale(1.4); }
+            80% { transform: scale(1.5); }
             100% { transform: scale(1); }
         }
 
         #intro-text {
             position: absolute;
-            bottom: 100px;
+            bottom: 120px;
             font-family: 'Parisienne', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--color-heart);
             opacity: 0;
-            animation: fadeInText 2s ease forwards 5s;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            animation: fadeInText 2.5s ease forwards 5.5s;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
         @keyframes fadeInText {
@@ -704,37 +706,37 @@
 
         #skip-intro {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.9);
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255,255,255,0.95);
             border: 1px solid var(--color-heart);
             color: var(--color-accent);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.4rem;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.4s ease;
+            font-size: 1rem;
+            transition: all 0.5s ease;
         }
 
         #skip-intro:hover {
-            background:urerm  var(--color-heart);
+            background: var(--color-heart);
             color: white;
             box-shadow: var(--shadow-glow);
         }
 
         .sparkle {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background: radial-gradient(circle, rgba(255,255,255,1), var(--color-heart-light));
             border-radius: 50%;
-            animation: sparkle 1.8s ease-in-out infinite;
+            animation: sparkle 2s ease-in-out infinite;
             z-index: 10;
         }
 
         @keyframes sparkle {
             0% { transform: scale(0); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.6; }
+            50% { transform: scale(1.4); opacity: 0.7; }
             100% { transform: scale(0); opacity: 1; }
         }
 
@@ -750,30 +752,6 @@
 
         .bloom-particle {
             position: absolute;
-            width: 12px;
-            height: 12px;
-            background: radial-gradient(circle, var(--color-heart-light), transparent);
-            border-radius: 50%;
-            animation: bloom 2.5s ease-in-out forwards;
-        }
-
-        @keyframes bloom {
-            0% { transform: scale(0); opacity: 0.9; }
-            100% { transform: scale(2.5); opacity: 0; }
-        }
-
-        .intro-sparkle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, white, var(--color-heart));
-            border-radius: 50%;
-            animation: sparkle 1.5s ease-in-out infinite;
-            z-index: 5;
-        }
-
-        .intro-bloom {
-            position: absolute;
             width: 15px;
             height: 15px;
             background: radial-gradient(circle, var(--color-heart-light), transparent);
@@ -781,39 +759,63 @@
             animation: bloom 3s ease-in-out forwards;
         }
 
+        @keyframes bloom {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .intro-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, white, var(--color-heart));
+            border-radius: 50%;
+            animation: sparkle 1.8s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .intro-bloom {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: radial-gradient(circle, var(--color-heart-light), transparent);
+            border-radius: 50%;
+            animation: bloom 3.5s ease-in-out forwards;
+        }
+
         .music-toggle {
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.9rem 1.8rem;
+            border-radius: 30px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
-            font-family: 'Caveat', cursive;
-            transition: all 0.4s ease;
+            font-size: 1.2rem;
+            font-family: 'Great Vibes', cursive;
+            transition: all 0.5s ease;
             box-shadow: var(--shadow-glow);
             z-index: 100;
-            margin: 1rem auto;
+            margin: 1.5rem auto;
             display: none;
         }
 
         .music-toggle:hover {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-3px) scale(1.03);
             background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
-            box-shadow: 0 10px 20px rgba(216, 27, 96, 0.2);
+            box-shadow: 0 12px 25px rgba(194, 24, 91, 0.2);
         }
 
         .music-toggle::before {
             content: '♥';
-            margin-right: 0.4rem;
-            font-size: 1.2rem;
-            animation: heartbeat 1.4s infinite;
+            margin-right: 0.5rem;
+            font-size: 1.4rem;
+            animation: heartbeat 1.5s infinite;
         }
 
         .music-toggle.fixed {
             position: fixed;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             margin: 0;
         }
     </style>
@@ -828,40 +830,40 @@
 
     <div id="intro-animation">
         <div class="bloom-effect" id="intro-bloom"></div>
-        <svg id="flower-svg" viewBox="0 0 180 180">
-            <line id="stem" x1="90" y1="180" x2="90" y2="90" stroke="#3d6b3a" stroke-width="3" />
-            <circle id="bud" cx="90" cy="90" r="15" fill="#ff8c94" />
+        <svg id="flower-svg" viewBox="0 0 200 200">
+            <line id="stem" x1="100" y1="200" x2="100" y2="100" stroke="#2e4f2e" stroke-width="3" />
+            <circle id="bud" cx="100" cy="100" r="18" fill="#e91e63" />
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(-45 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(-45 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(45 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(45 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(90 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(90 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(135 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(135 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(0 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(0 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(-90 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#fce4ec" transform="rotate(-90 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(-22.5 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#f8bbd0" transform="rotate(-22.5 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(22.5 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#f8bbd0" transform="rotate(22.5 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(67.5 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#f8bbd0" transform="rotate(67.5 100 100)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(112.5 90 90)" />
+                <ellipse cx="100" cy="100" rx="28" ry="14" fill="#f8bbd0" transform="rotate(112.5 100 100)" />
             </g>
-            <path id="heart-center" d="M90 75c-3 0-15-7-15-15 0-4 3-7 7-7s7 3 7 3 3-3 7-3 7 3 7 7c0 7-12 15-15 15z" fill="#ff8c94" />
+            <path id="heart-center" d="M100 85c-3.5 0-17-8-17-17 0-4.5 3.5-8 8-8s8 3.5 8 3.5 3.5-3.5 8-3.5 8 3.5 8 8c0 8-13 17-17 17z" fill="#e91e63" />
         </svg>
         <div id="intro-text">Our Love Blossoms Here...</div>
         <button id="skip-intro">Skip Intro</button>
@@ -1000,7 +1002,7 @@
         </div>
 
         <button id="restart-btn" class="btn">Read it again?</button>
-        <button id="secret-btn" class="btn" style="margin-top: 1rem; background: var(--color-heart-light);">A special surprise</button>
+        <button id="secret-btn" class="btn" style="margin-top: 1.5rem; background: var(--color-heart-light);">A special surprise</button>
     </section>
 
     <div class="secret-message" id="secret-message">
@@ -1008,8 +1010,8 @@
         <h3>Just Between Us</h3>
         <p>If I could give you one thing in life, I would give you the ability to see yourself through my eyes. Only then would you realize how extraordinary you are to me.</p>
         <p>No matter where this journey takes us, know that in this moment, my heart is entirely yours.</p>
-        <div style="margin-top: 1.5rem;">
-            <span class="heartbeat" style="font-size: 2.5rem;">♥</span>
+        <div style="margin-top: 2rem;">
+            <span class="heartbeat" style="font-size: 3rem;">♥</span>
         </div>
     </div>
 
@@ -1026,8 +1028,6 @@
         let isPlaying = false;
 
         function playMusic() {
-            if (isPlaying) return;
-
             const playPromise = bgm.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -1044,7 +1044,6 @@
         }
 
         function pauseMusic() {
-            if (!isPlaying) return;
             bgm.pause();
             isPlaying = false;
             musicToggle.textContent = 'Play Music';
@@ -1070,7 +1069,7 @@
             playMusic();
         });
 
-        // Handle user interaction to ensure playback (for browsers requiring interaction)
+        // Handle user interaction to ensure playback
         document.addEventListener('click', () => {
             if (!isPlaying) playMusic();
         }, { once: true });
@@ -1088,10 +1087,10 @@
                 introAnimation.style.display = 'none';
                 musicToggle.classList.add('fixed');
                 showSection(0);
-            }, 1500);
+            }, 2000);
         }
 
-        setTimeout(startMainContent, 8000);
+        setTimeout(startMainContent, 9000);
 
         document.getElementById('to-memories-btn').addEventListener('click', () => navigateTo(2));
         document.getElementById('to-love-meter-btn').addEventListener('click', () => navigateTo(3));
@@ -1110,7 +1109,7 @@
             showSection(currentSection);
 
             window.scrollTo({
-                top: sections[currentSection].offsetTop - 50,
+                top: sections[currentSection].offsetTop - 60,
                 behavior: 'smooth'
             });
 
@@ -1139,21 +1138,21 @@
             const items = document.querySelectorAll('.firsts-list li');
             items.forEach((item, index) => {
                 item.style.setProperty('--i', index);
-                setTimeout(() => item.classList.add('show'), index * 200);
+                setTimeout(() => item.classList.add('show'), index * 250);
             });
         }
 
         function animateMemoryBoxes() {
             const boxes = document.querySelectorAll('.memory-box');
             boxes.forEach((box, index) => {
-                setTimeout(() => box.classList.add('show'), index * 400);
+                setTimeout(() => box.classList.add('show'), index * 500);
             });
         }
 
         function startLoveCounter() {
             let counter = 0;
             const target = 1000000;
-            const duration = 4000;
+            const duration = 5000;
             const increment = target / (duration / 16);
 
             const loveCounter = document.getElementById('love-counter');
@@ -1168,17 +1167,17 @@
                     heart.innerHTML = '♥';
                     heart.style.position = 'absolute';
                     heart.style.color = 'var(--color-heart)';
-                    heart.style.fontSize = '1.2rem';
+                    heart.style.fontSize = '1.4rem';
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.top = Math.random() * 100 + '%';
-                    heart.style.animation = 'float-up 1.5s forwards';
+                    heart.style.animation = 'float-up 2s forwards';
                     document.getElementById('love-meter').appendChild(heart);
-                    setTimeout(() => heart.remove(), 1500);
+                    setTimeout(() => heart.remove(), 2000);
                     requestAnimationFrame(updateCounter);
                 } else {
                     loveCounter.textContent = "∞";
                     meterProgress.style.width = "100%";
-                    document.getElementById('infinite-love').style.animation = "heartbeat 1.4s infinite";
+                    document.getElementById('infinite-love').style.animation = "heartbeat 1.5s infinite";
                 }
             };
 
@@ -1188,7 +1187,7 @@
         function animatePromiseCards() {
             const cards = document.querySelectorAll('.promise-card');
             cards.forEach((card, index) => {
-                setTimeout(() => card.classList.add('show'), index * 200);
+                setTimeout(() => card.classList.add('show'), index * 250);
             });
         }
 
@@ -1197,7 +1196,7 @@
             if (!container) return;
 
             container.innerHTML = '';
-            const heartCount = 10;
+            const heartCount = 12;
 
             for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
@@ -1205,30 +1204,30 @@
                     heart.className = 'heart-particle';
                     heart.innerHTML = '♥';
                     heart.style.left = Math.random() * 100 + '%';
-                    heart.style.fontSize = (Math.random() * 16 + 10) + 'px';
-                    heart.style.animationDuration = (Math.random() * 4 + 2) + 's';
-                    heart.style.animationDelay = (Math.random() * 1) + 's';
+                    heart.style.fontSize = (Math.random() * 18 + 12) + 'px';
+                    heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                    heart.style.animationDelay = (Math.random() * 1.5) + 's';
                     container.appendChild(heart);
 
                     setTimeout(() => {
                         if (heart.parentNode === container) container.removeChild(heart);
                     }, parseFloat(heart.style.animationDuration) * 1000);
-                }, i * 100);
+                }, i * 150);
             }
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 6; i++) {
                 setTimeout(() => {
                     const sparkle = document.createElement('div');
                     sparkle.className = 'sparkle';
                     sparkle.style.left = Math.random() * 100 + '%';
                     sparkle.style.top = Math.random() * 100 + '%';
-                    sparkle.style.animationDelay = (Math.random() * 0.8) + 's';
+                    sparkle.style.animationDelay = (Math.random() * 1) + 's';
                     container.appendChild(sparkle);
 
                     setTimeout(() => {
                         if (sparkle.parentNode === container) container.removeChild(sparkle);
-                    }, 1500);
-                }, i * 150);
+                    }, 2000);
+                }, i * 200);
             }
         }
 
@@ -1237,7 +1236,7 @@
             if (!container) return;
 
             container.innerHTML = '';
-            const bloomCount = 8;
+            const bloomCount = 10;
 
             for (let i = 0; i < bloomCount; i++) {
                 setTimeout(() => {
@@ -1245,13 +1244,13 @@
                     bloom.className = 'bloom-particle';
                     bloom.style.left = Math.random() * 100 + '%';
                     bloom.style.top = Math.random() * 100 + '%';
-                    bloom.style.animationDelay = (Math.random() * 1) + 's';
+                    bloom.style.animationDelay = (Math.random() * 1.5) + 's';
                     container.appendChild(bloom);
 
                     setTimeout(() => {
                         if (bloom.parentNode === container) container.removeChild(bloom);
-                    }, 2000);
-                }, i * 200);
+                    }, 2500);
+                }, i * 250);
             }
         }
 
@@ -1260,8 +1259,8 @@
             if (!container) return;
 
             container.innerHTML = '';
-            const sparkleCount = 12;
-            const bloomCount = 10;
+            const sparkleCount = 15;
+            const bloomCount = 12;
 
             for (let i = 0; i < sparkleCount; i++) {
                 setTimeout(() => {
@@ -1269,13 +1268,13 @@
                     sparkle.className = 'intro-sparkle';
                     sparkle.style.left = (Math.random() * 50 + 25) + '%';
                     sparkle.style.top = (Math.random() * 50 + 25) + '%';
-                    sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
+                    sparkle.style.animationDelay = (Math.random() * 2) + 's';
                     container.appendChild(sparkle);
 
                     setTimeout(() => {
                         if (sparkle.parentNode === container) container.removeChild(sparkle);
-                    }, 1500);
-                }, i * 200);
+                    }, 2000);
+                }, i * 250);
             }
 
             for (let i = 0; i < bloomCount; i++) {
@@ -1284,13 +1283,13 @@
                     bloom.className = 'intro-bloom';
                     bloom.style.left = (Math.random() * 60 + 20) + '%';
                     bloom.style.top = (Math.random() * 60 + 20) + '%';
-                    bloom.style.animationDelay = (Math.random() * 2) + 's';
+                    bloom.style.animationDelay = (Math.random() * 2.5) + 's';
                     container.appendChild(bloom);
 
                     setTimeout(() => {
                         if (bloom.parentNode === container) container.removeChild(bloom);
-                    }, 3000);
-                    }, i * 300);
+                    }, 3500);
+                }, i * 350);
             }
         }
 
@@ -1306,9 +1305,9 @@
         }
 
         function createConfetti() {
-            const colors = ['#ff8c94', '#ffe6ea', '#d81b60', '#ffd1d6', '#fff0f3'];
-            const shapes = ['♥', '✿', '❀'];
-            const confettiCount = 60;
+            const colors = ['#e91e63', '#fce4ec', '#c2185b', '#f8bbd0', '#fff1f5'];
+            const shapes = ['♥', '❁', '❀'];
+            const confettiCount = 80;
 
             for (let i = 0; i < confettiCount; i++) {
                 setTimeout(() => {
@@ -1317,12 +1316,12 @@
                     confetti.style.left = Math.random() * 100 + 'vw';
                     confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
                     confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
-                    confetti.style.fontSize = (Math.random() * 16 + 10) + 'px';
-                    confetti.style.animationDuration = (Math.random() * 1.5 + 1) + 's';
+                    confetti.style.fontSize = (Math.random() * 18 + 12) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
                     document.body.appendChild(confetti);
 
-                    setTimeout(() => confetti.remove(), 1500);
-                }, i * 15);
+                    setTimeout(() => confetti.remove(), 2000);
+                }, i * 20);
             }
         }
 
@@ -1335,9 +1334,9 @@
             const activeBloom = sections[currentSection].querySelector('.bloom-effect').id;
             createHearts(activeHearts);
             createBloom(activeBloom);
-        }, 1500);
+        }, 2000);
 
-        setInterval(createIntroEffects, 2000);
+        setInterval(createIntroEffects, 2500);
     </script>
 </body>
 </html>

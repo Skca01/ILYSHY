@@ -605,17 +605,37 @@
             align-items: center;
             z-index: 1000;
             transition: opacity 1.5s ease;
+            overflow: hidden;
+        }
+
+        #intro-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 245, 245, 0.5), transparent);
+            opacity: 0;
+            animation: pulseBackground 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseBackground {
+            0% { opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; }
         }
 
         #flower-svg {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
+            filter: drop-shadow(0 5px 10px rgba(255, 140, 148, 0.3));
         }
 
         #stem {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 120;
-            animation: drawStem 2s ease-in-out forwards;
+            stroke-dasharray: 150;
+            stroke-dashoffset: 150;
+            animation: drawStem 2.5s ease-in-out forwards;
         }
 
         @keyframes drawStem {
@@ -624,61 +644,58 @@
 
         #bud {
             transform: scale(0);
-            animation: growBud 2s ease-in-out forwards;
+            animation: growBud 2.5s ease-in-out forwards 1s;
         }
 
         @keyframes growBud {
             0% { transform: scale(0); }
-            80% { transform: scale(1.3); }
+            80% { transform: scale(1.4); }
             100% { transform: scale(1); }
         }
 
         .petal-group {
             transform: scale(0);
-            transform-origin: 60px 60px;
-            animation: unfurlPetal 2s ease-in-out forwards;
+            transform-origin: 90px 90px;
+            animation: unfurlPetal 2.5s ease-in-out forwards;
         }
 
-        .petal-group:nth-child(3) { animation-delay: 2s; }
-        .petal-group:nth-child(4) { animation-delay: 2.2s; }
-        .petal-group:nth-child(5) { animation-delay: 2.4s; }
-        .petal-group:nth-child(6) { animation-delay: 2.6s; }
-        .petal-group:nth-child(7) { animation-delay: 2.8s; }
-        .petal-group:nth-child(8) { animation-delay: 3s; }
-        .petal-group:nth-child(9) { animation-delay: 3.2s; }
-        .petal-group:nth-child(10) { animation-delay: 3.4s; }
+        .petal-group:nth-child(3) { animation-delay: 2.5s; }
+        .petal-group:nth-child(4) { animation-delay: 2.7s; }
+        .petal-group:nth-child(5) { animation-delay: 2.9s; }
+        .petal-group:nth-child(6) { animation-delay: 3.1s; }
+        .petal-group:nth-child(7) { animation-delay: 3.3s; }
+        .petal-group:nth-child(8) { animation-delay: 3.5s; }
+        .petal-group:nth-child(9) { animation-delay: 3.7s; }
+        .petal-group:nth-child(10) { animation-delay: 3.9s; }
+        .petal-group:nth-child(11) { animation-delay: 4.1s; }
+        .petal-group:nth-child(12) { animation-delay: 4.3s; }
 
         @keyframes unfurlPetal {
             0% { transform: scale(0) rotate(0deg); }
-            70% { transform: scale(1.2) rotate(360deg); }
+            70% { transform: scale(1.3) rotate(360deg); }
             100% { transform: scale(1) rotate(360deg); }
         }
 
         #heart-center {
             transform: scale(0);
-            animation: growHeart 1.5s ease-in-out forwards 3.5s;
+            animation: growHeart 1.8s ease-in-out forwards 4.5s;
         }
 
         @keyframes growHeart {
             0% { transform: scale(0); }
-            80% { transform: scale(1.3); }
+            80% { transform: scale(1.4); }
             100% { transform: scale(1); }
         }
 
         #intro-text {
             position: absolute;
-            bottom: 80px;
+            bottom: 100px;
             font-family: 'Parisienne', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--color-heart);
             opacity: 0;
-            animation: fadeInText 2s ease forwards 4s;
-        }
-
-        @keyframes vibrate {
-            0%, 100% { transform: translate(0, 0); }
-            10%, 30%, 50%, 70%, 90% { transform: translate(-2px, -2px); }
-            20%, 40%, 60%, 80% { transform: translate(2px, 2px); }
+            animation: fadeInText 2s ease forwards 5s;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         @keyframes fadeInText {
@@ -700,24 +717,24 @@
         }
 
         #skip-intro:hover {
-            background: var(--color-heart);
+            background:urerm  var(--color-heart);
             color: white;
             box-shadow: var(--shadow-glow);
         }
 
         .sparkle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: radial-gradient(circle, rgba(255,255,255,1), var(--color-heart-light));
             border-radius: 50%;
-            animation: sparkle 1.5s ease-in-out infinite;
+            animation: sparkle 1.8s ease-in-out infinite;
             z-index: 10;
         }
 
         @keyframes sparkle {
             0% { transform: scale(0); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 0.6; }
             100% { transform: scale(0); opacity: 1; }
         }
 
@@ -733,16 +750,35 @@
 
         .bloom-particle {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background: radial-gradient(circle, var(--color-heart-light), transparent);
             border-radius: 50%;
-            animation: bloom 2s ease-in-out forwards;
+            animation: bloom 2.5s ease-in-out forwards;
         }
 
         @keyframes bloom {
-            0% { transform: scale(0); opacity: 0.8; }
-            100% { transform: scale(2); opacity: 0; }
+            0% { transform: scale(0); opacity: 0.9; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .intro-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, white, var(--color-heart));
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .intro-bloom {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, var(--color-heart-light), transparent);
+            border-radius: 50%;
+            animation: bloom 3s ease-in-out forwards;
         }
 
         .music-toggle {
@@ -791,28 +827,41 @@
     <button id="music-toggle" class="music-toggle">Pause Music</button>
 
     <div id="intro-animation">
-        <svg id="flower-svg" viewBox="0 0 120 120">
-            <line id="stem" x1="60" y1="120" x2="60" y2="60" stroke="#3d6b3a" stroke-width="2" />
-            <circle id="bud" cx="60" cy="60" r="12" fill="#ff8c94" />
+        <div class="bloom-effect" id="intro-bloom"></div>
+        <svg id="flower-svg" viewBox="0 0 180 180">
+            <line id="stem" x1="90" y1="180" x2="90" y2="90" stroke="#3d6b3a" stroke-width="3" />
+            <circle id="bud" cx="90" cy="90" r="15" fill="#ff8c94" />
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(-45 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(-45 90 90)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(45 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(45 90 90)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(90 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(90 90 90)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(135 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(135 90 90)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(0 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(0 90 90)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="20" ry="10" fill="#ffe6ea" transform="rotate(-90 60 60)" />
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffe6ea" transform="rotate(-90 90 90)" />
             </g>
-            <path id="heart-center" d="M60 50c-2 0-10-5-10-10 0-3 2-5 5-5s5 2 5 2 2-2 5-2 5 2 5 5c0 5-8 10-10 10z" fill="#ff8c94" />
+            <g class="petal-group">
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(-22.5 90 90)" />
+            </g>
+            <g class="petal-group">
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(22.5 90 90)" />
+            </g>
+            <g class="petal-group">
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(67.5 90 90)" />
+            </g>
+            <g class="petal-group">
+                <ellipse cx="90" cy="90" rx="25" ry="12" fill="#ffd1d6" transform="rotate(112.5 90 90)" />
+            </g>
+            <path id="heart-center" d="M90 75c-3 0-15-7-15-15 0-4 3-7 7-7s7 3 7 3 3-3 7-3 7 3 7 7c0 7-12 15-15 15z" fill="#ff8c94" />
         </svg>
         <div id="intro-text">Our Love Blossoms Here...</div>
         <button id="skip-intro">Skip Intro</button>
@@ -1042,7 +1091,7 @@
             }, 1500);
         }
 
-        setTimeout(startMainContent, 6000);
+        setTimeout(startMainContent, 8000);
 
         document.getElementById('to-memories-btn').addEventListener('click', () => navigateTo(2));
         document.getElementById('to-love-meter-btn').addEventListener('click', () => navigateTo(3));
@@ -1206,6 +1255,45 @@
             }
         }
 
+        function createIntroEffects() {
+            const container = document.getElementById('intro-bloom');
+            if (!container) return;
+
+            container.innerHTML = '';
+            const sparkleCount = 12;
+            const bloomCount = 10;
+
+            for (let i = 0; i < sparkleCount; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'intro-sparkle';
+                    sparkle.style.left = (Math.random() * 50 + 25) + '%';
+                    sparkle.style.top = (Math.random() * 50 + 25) + '%';
+                    sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
+                    container.appendChild(sparkle);
+
+                    setTimeout(() => {
+                        if (sparkle.parentNode === container) container.removeChild(sparkle);
+                    }, 1500);
+                }, i * 200);
+            }
+
+            for (let i = 0; i < bloomCount; i++) {
+                setTimeout(() => {
+                    const bloom = document.createElement('div');
+                    bloom.className = 'intro-bloom';
+                    bloom.style.left = (Math.random() * 60 + 20) + '%';
+                    bloom.style.top = (Math.random() * 60 + 20) + '%';
+                    bloom.style.animationDelay = (Math.random() * 2) + 's';
+                    container.appendChild(bloom);
+
+                    setTimeout(() => {
+                        if (bloom.parentNode === container) container.removeChild(bloom);
+                    }, 3000);
+                    }, i * 300);
+            }
+        }
+
         function showSecretMessage() {
             createConfetti();
             document.getElementById('secret-message').classList.add('show');
@@ -1240,6 +1328,7 @@
 
         createHearts('welcome-hearts');
         createBloom('welcome-bloom');
+        createIntroEffects();
 
         setInterval(() => {
             const activeHearts = sections[currentSection].querySelector('.floating-hearts').id;
@@ -1247,6 +1336,8 @@
             createHearts(activeHearts);
             createBloom(activeBloom);
         }, 1500);
+
+        setInterval(createIntroEffects, 2000);
     </script>
 </body>
 </html>

@@ -6,19 +6,19 @@
     <title>My Heart's Journey to You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@200;300;400;600&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-heart: #ff99b1;
-            --color-heart-light: #fff3f7;
-            --color-bg: #fef7f9;
-            --color-text: #2e2e3f;
-            --color-accent: #d6336c;
-            --color-light: #fff1f5;
-            --color-secondary: #ffdce3;
-            --color-gold: #f7d9a8;
+            --color-heart: #ff8c94;
+            --color-heart-light: #ffe6ea;
+            --color-bg: #fff5f5;
+            --color-text: #2d2d3a;
+            --color-accent: #d81b60;
+            --color-light: #fff0f3;
+            --color-secondary: #ffd1d6;
+            --color-peach: #ffe4e1;
             --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-glow: 0 0 20px rgba(255, 153, 177, 0.5);
+            --shadow-glow: 0 0 20px rgba(255, 140, 148, 0.3);
         }
 
         * {
@@ -29,7 +29,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, var(--color-bg), var(--color-light));
+            background: linear-gradient(180deg, var(--color-bg), var(--color-peach));
             color: var(--color-text);
             line-height: 1.8;
             overflow-x: hidden;
@@ -44,16 +44,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path fill="none" stroke="%23fff3f7" stroke-width="0.4" d="M30 15c-6 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9z"/></svg>') repeat;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path fill="none" stroke="%23ffe6ea" stroke-width="0.2" d="M20 10c-4 0-6 2-6 6s2 6 6 6 6-2 6-6-2-6-6-6z"/></svg>') repeat;
             opacity: 0.1;
             z-index: -1;
         }
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            25% { transform: scale(1.2); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.2); }
+            20% { transform: scale(1.2); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
 
@@ -69,22 +69,17 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes petalFall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .heartbeat {
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 1.4s ease-in-out infinite;
             color: var(--color-heart);
         }
 
         .glow {
-            animation: glow 2.5s infinite;
+            animation: glow 2s ease-in-out infinite;
         }
 
         .section {
@@ -103,48 +98,35 @@
             border-radius: 30px;
             margin: 1.5rem;
             box-shadow: var(--shadow-soft);
-            overflow: hidden;
             border: 2px solid var(--color-heart-light);
+            overflow: hidden;
         }
 
         .section.active {
             opacity: 1;
             transform: translateY(0);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23fff3f7" fill-opacity="0.2" d="M50 30c-10 0-15 7-15 15s7 15 15 15 15-7 15-15-7-15-15-15z"/></svg>') repeat;
-            opacity: 0.05;
-            z-index: -1;
         }
 
         h1, h2 {
-            font-family: 'Parisienne', cursive;
-            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
             margin-bottom: 2rem;
             color: var(--color-accent);
         }
 
         h1 {
             font-size: 2.5rem;
-            background: linear-gradient(45deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: glow 2.5s infinite;
+            animation: glow 2s ease-in-out infinite;
         }
 
         h2 {
             font-size: 2rem;
             position: relative;
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Parisienne', cursive;
         }
 
         h2:after {
@@ -155,7 +137,7 @@
             transform: translateX(-50%);
             font-size: 2rem;
             color: var(--color-heart-light);
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 1.4s infinite;
         }
 
         p {
@@ -163,19 +145,18 @@
             max-width: 80%;
             margin: 0 auto 1.5rem;
             font-weight: 300;
-            font-family: 'Caveat', cursive;
-            color: var(--color-text);
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .btn {
-            background: linear-gradient(45deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             color: white;
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
             margin-top: 2rem;
-            transition: all 0.6s ease;
+            transition: all 0.4s ease;
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -183,13 +164,12 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            font-family: 'Caveat', cursive;
         }
 
         .btn:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 15px 35px rgba(214, 51, 108, 0.4);
-            background: linear-gradient(45deg, var(--color-gold), var(--color-heart));
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.3);
+            background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
         }
 
         .btn:before {
@@ -225,11 +205,11 @@
             transform: translateX(-50%);
             color: var(--color-heart);
             font-size: 1.8rem;
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 1.4s infinite;
         }
 
         .section::before {
-            content: '❤';
+            content: '♥';
             position: absolute;
             top: 30px;
             left: 50%;
@@ -257,11 +237,11 @@
             opacity: 0;
             transform: translateX(-40px);
             transition: all 0.8s ease;
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: linear-gradient(90deg, var(--color-heart-light), transparent);
             padding: 1rem 1.2rem 1rem 3.5rem;
             border-radius: 15px;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .firsts-list li.show {
@@ -270,13 +250,13 @@
         }
 
         .firsts-list li:before {
-            content: "❤";
+            content: "♥";
             position: absolute;
             left: 1rem;
             color: var(--color-heart);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             top: 1rem;
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 1.4s infinite;
             animation-delay: calc(var(--i) * 0.15s);
         }
 
@@ -292,7 +272,7 @@
             transition: all 0.7s ease;
             opacity: 0;
             border: 2px solid var(--color-heart-light);
-            background: linear-gradient(180deg, var(--color-light), white);
+            background: linear-gradient(180deg, var(--color-peach), white);
         }
 
         .memory-box.show {
@@ -301,7 +281,7 @@
         }
 
         .memory-box:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
             box-shadow: var(--shadow-glow);
         }
 
@@ -312,7 +292,7 @@
             left: 0;
             right: 0;
             height: 8px;
-            background: linear-gradient(90deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
             border-radius: 25px 25px 0 0;
         }
 
@@ -323,7 +303,7 @@
             color: var(--color-accent);
             opacity: 0;
             transition: opacity 0.6s ease;
-            font-size: 1rem;
+            font-size: 0.95rem;
             animation: fadeInUp 0.7s ease forwards;
         }
 
@@ -351,7 +331,7 @@
             transform: translateX(-50%);
             font-size: 2.5rem;
             color: var(--color-heart);
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 1.4s infinite;
         }
 
         .meter-text {
@@ -367,8 +347,8 @@
             font-weight: bold;
             color: var(--color-heart);
             margin: 1.5rem 0;
-            font-family: 'Great Vibes', cursive;
-            animation: glow 2.3s infinite;
+            font-family: 'Parisienne', cursive;
+            animation: glow 2s infinite;
         }
 
         .meter-bar {
@@ -383,7 +363,7 @@
         .meter-progress {
             height: 100%;
             width: 0;
-            background: linear-gradient(90deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
             border-radius: 8px;
             transition: width 0.7s ease;
             box-shadow: 0 0 15px var(--color-heart);
@@ -399,7 +379,12 @@
             width: 200%;
             height: 100%;
             background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
-            animation: shimmer 2.5s infinite;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(0) scale(0); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.8); opacity: 0; }
         }
 
         .promise-container {
@@ -420,7 +405,7 @@
             transition: all 0.8s ease;
             position: relative;
             border: 2px solid var(--color-heart-light);
-            background: linear-gradient(180deg, var(--color-light), white);
+            background: linear-gradient(180deg, var(--color-peach), white);
         }
 
         .promise-card.show {
@@ -430,7 +415,7 @@
 
         .promise-card:hover {
             box-shadow: var(--shadow-glow);
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .promise-card:before {
@@ -440,11 +425,11 @@
             left: 0;
             width: 8px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--color-heart), var(--color-gold));
+            background: linear-gradient(to bottom, var(--color-heart), var(--color-peach));
         }
 
         .promise-card h3 {
-            font-family: 'Parisienne', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.8rem;
             color: var(--color-accent);
             margin-bottom: 1.2rem;
@@ -458,14 +443,14 @@
             box-shadow: var(--shadow-soft);
             margin: 3rem auto;
             position: relative;
-            transform: perspective(1400px) rotateX(-10deg);
+            transform: perspective(1000px) rotateX(-10deg);
             transition: transform 0.8s ease;
             border: 2px solid var(--color-heart-light);
-            background: linear-gradient(180deg, var(--color-light), white);
+            background: linear-gradient(180deg, var(--color-peach), white);
         }
 
         #final-letter:hover {
-            transform: perspective(1400px) rotateX(0);
+            transform: perspective(1000px) rotateX(0);
         }
 
         #final-letter:before {
@@ -475,7 +460,7 @@
             left: 0;
             right: 0;
             height: 10px;
-            background: linear-gradient(90deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
             border-radius: 25px 25px 0 0;
         }
 
@@ -493,7 +478,7 @@
         }
 
         .signature {
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Parisienne', cursive;
             font-size: 3rem;
             color: var(--color-heart);
             margin-top: 3rem;
@@ -520,35 +505,14 @@
             position: absolute;
             opacity: 0;
             color: var(--color-heart-light);
-            animation: float-up-particle linear forwards;
+            animation: float-up-particle 4s linear forwards;
         }
 
         @keyframes float-up-particle {
             0% { transform: translateY(100vh) rotate(0deg) scale(0.3); opacity: 0; }
             10% { opacity: 0.9; }
             90% { opacity: 0.9; }
-            100% { transform: translateY(-200px) rotate(360deg) scale(1.3); opacity: 0; }
-        }
-
-        .petal-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .petal {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: radial-gradient(circle, var(--color-heart), var(--color-heart-light));
-            border-radius: 50% 50% 0 50%;
-            transform: rotate(45deg);
-            opacity: 0.8;
-            animation: petalFall 10s linear infinite;
+            100% { transform: translateY(-200px) rotate(720deg) scale(1.5); opacity: 0; }
         }
 
         .confetti {
@@ -556,13 +520,13 @@
             width: 16px;
             height: 16px;
             opacity: 0;
-            z-index: 1001;
-            animation: confetti-fall 3.5s linear forwards;
+            z-index: 1000;
+            animation: confetti-fall 4s linear forwards;
         }
 
         @keyframes confetti-fall {
             0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            100% { transform: translateY(100vh) rotate(1080deg); opacity: 0; }
         }
 
         .secret-message {
@@ -574,13 +538,13 @@
             padding: 3.5rem;
             border-radius: 30px;
             box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-            z-index: 1002;
-            max-width: 90%;
+            z-index: 1001;
+            max-width: 85%;
             text-align: center;
             transition: transform 0.8s ease;
             display: none;
             border: 2px solid var(--color-heart-light);
-            background: linear-gradient(180deg, var(--color-light), white);
+            background: linear-gradient(180deg, var(--color-peach), white);
         }
 
         .secret-message.show {
@@ -611,7 +575,7 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 85%;
             height: 8px;
             background-color: rgba(255,255,255,0.8);
             border-radius: 8px;
@@ -622,7 +586,7 @@
         .progress-bar {
             height: 100%;
             width: 0;
-            background: linear-gradient(90deg, var(--color-heart), var(--color-gold));
+            background: linear-gradient(90deg, var(--color-heart), var(--color-peach));
             border-radius: 8px;
             transition: width 0.5s ease;
             box-shadow: 0 0 12px var(--color-heart);
@@ -634,7 +598,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(to bottom, var(--color-light), var(--color-bg));
+            background: linear-gradient(to bottom, var(--color-peach), var(--color-bg));
             display: flex;
             justify-content: center;
             align-items: center;
@@ -670,7 +634,7 @@
 
         .petal-group {
             transform: scale(0);
-            transform-origin: 80px 80px;
+            transform-origin: 75px 75px;
             animation: unfurlPetal 3s ease-in-out forwards;
         }
 
@@ -707,7 +671,11 @@
             font-size: 2.5rem;
             color: var(--color-heart);
             opacity: 0;
-            animation: fadeInUp 3s ease forwards 5s;
+            animation: fadeInText 3s ease forwards 5s;
+        }
+
+        @keyframes fadeInText {
+            to { opacity: 1; }
         }
 
         #skip-intro {
@@ -722,7 +690,6 @@
             cursor: pointer;
             font-size: 1.1rem;
             transition: all 0.5s ease;
-            font-family: 'Caveat', cursive;
         }
 
         #skip-intro:hover {
@@ -735,7 +702,7 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            background: radial-gradient(circle, rgba(255,255,255,1), var(--color-gold));
+            background: radial-gradient(circle, rgba(255,255,255,1), var(--color-heart-light));
             border-radius: 50%;
             animation: sparkle 2s ease-in-out infinite;
             z-index: 10;
@@ -759,8 +726,8 @@
 
         .bloom-particle {
             position: absolute;
-            width: 15px;
-            height: 15px;
+            width: 14px;
+            height: 14px;
             background: radial-gradient(circle, var(--color-heart-light), transparent);
             border-radius: 50%;
             animation: bloom 2.5s ease-in-out forwards;
@@ -771,75 +738,66 @@
             100% { transform: scale(2.5); opacity: 0; }
         }
 
-        .audio-controls {
+        .music-toggle {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
             background: rgba(255,255,255,0.9);
-            padding: 1rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .audio-controls button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+            border: 2px solid var(--color-heart);
             color: var(--color-accent);
-            transition: color 0.3s ease;
-        }
-
-        .audio-controls button:hover {
-            color: var(--color-heart);
-        }
-
-        .audio-controls span {
-            font-family: 'Caveat', cursive;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
             font-size: 1rem;
-            color: var(--color-text);
+            font-family: 'Caveat', cursive;
+            transition: all 0.5s ease;
+            z-index: 100;
+        }
+
+        .music-toggle:hover {
+            background: var(--color-heart);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .music-toggle::before {
+            content: '♥';
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            animation: heartbeat 1.4s infinite;
         }
     </style>
 </head>
 <body>
-    <audio id="bgm" loop>
-        <source src="those_eyes.mp3" type="audio/mpeg">
+    <audio id="bgm" autoplay loop>
+        <source src="https://drive.google.com/uc?export=download&id=1gVeM383LwdQQBDjLG3zhn9o2uXzosvzC" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <div class="audio-controls">
-        <button id="play-pause-btn">▶️</button>
-        <span>Those Eyes - New West</span>
-    </div>
-
-    <div class="petal-container" id="petal-container"></div>
+    <button id="music-toggle" class="music-toggle">Pause Music</button>
 
     <div id="intro-animation">
         <svg id="flower-svg" viewBox="0 0 120 120">
-            <line id="stem" x1="60" y1="120" x2="60" y2="60" stroke="#4a7043" stroke-width="2.5" />
-            <circle id="bud" cx="60" cy="60" r="12" fill="#ff99b1" />
+            <line id="stem" x1="60" y1="120" x2="60" y2="60" stroke="#3d6b3a" stroke-width="3" />
+            <circle id="bud" cx="60" cy="60" r="14" fill="#ff8c94" />
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(-45 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(-45 60 60)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(45 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(45 60 60)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(90 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(90 60 60)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(135 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(135 60 60)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(0 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(0 60 60)" />
             </g>
             <g class="petal-group">
-                <ellipse cx="60" cy="60" rx="22" ry="10" fill="#fff3f7" transform="rotate(-90 60 60)" />
+                <ellipse cx="60" cy="60" rx="24" ry="12" fill="#ffe6ea" transform="rotate(-90 60 60)" />
             </g>
-            <path id="heart-center" d="M60 50c-2 0-10-5-10-10 0-3 2-5 5-5s5 2 5 2 2-2 5-2 5 2 5 5c0 5-8 10-10 10z" fill="#ff99b1" />
+            <path id="heart-center" d="M60 50c-2 0-10-5-10-10 0-3 2-5 5-5s5 2 5 2 2-2 5-2 5 2 5 5c0 5-8 10-10 10z" fill="#ff8c94" />
         </svg>
         <div id="intro-text">Our Love Blossoms Here...</div>
         <button id="skip-intro">Skip Intro</button>
@@ -855,6 +813,7 @@
         <h1>This is my heart's journey to you</h1>
         <p>I may not be your first, but you're the first to hold my heart this way.</p>
         <p>Every moment with you feels like the beginning of something I’ve waited my whole life to feel.</p>
+        <p>Let "Those Eyes" fill the air as you explore my heart's journey for you.</p>
         <button id="start-btn" class="btn">Let me show you how deep my love goes</button>
     </section>
     
@@ -863,8 +822,75 @@
     <section id="firsts" class="section">
         <div class="floating-hearts" id="firsts-hearts"></div>
         <div class="bloom-effect" id="firsts-bloom"></div>
-        <h2>You're My First <span class="heartbeat">❤</span></h2>
-        <ul class="firsts-listld you are completely. I will never compare, only cherish every part of your journey.</p>
+        <h2>You're My First <span class="heartbeat">♥</span></h2>
+        <ul class="firsts-list">
+            <li>My first love that felt both exciting and completely natural.</li>
+            <li>My first thought in the morning and my last whisper at night.</li>
+            <li>My first "I love you" that carried the weight of my entire being.</li>
+            <li>My first partner I've chosen with full awareness and intention.</li>
+            <li>My first future I can't imagine without someone else in it.</li>
+            <li>My first person who made patience feel rewarding, not painful.</li>
+        </ul>
+        <button id="to-memories-btn" class="btn">You're in all my memories</button>
+    </section>
+    
+    <div class="divider"></div>
+    
+    <section id="memories" class="section">
+        <div class="floating-hearts" id="memories-hearts"></div>
+        <div class="bloom-effect" id="memories-bloom"></div>
+        <h2>Memories Etched in My Heart</h2>
+        
+        <div class="memory-box" id="memory-1">
+            <p>I don't need photos to remember how your laughter sounds like my favorite song, or how your voice wraps around my heart like a warm embrace.</p>
+            <p class="hidden-message">Every giggle, every chuckle, it's all music to my soul.</p>
+        </div>
+        
+        <div class="memory-box" id="memory-2">
+            <p>The way your eyes light up when you talk about things you love - that's brighter than any picture could ever capture.</p>
+            <p class="hidden-message">Your passion paints my world in colors no camera could catch.</p>
+        </div>
+        
+        <div class="memory-box" id="memory-3">
+            <p>Our quiet moments mean more to me than staged photographs ever could. The comfortable silence, the unspoken understanding - these are my treasures.</p>
+            <p class="hidden-message">In stillness, I hear your heart the loudest.</p>
+        </div>
+        
+        <button id="to-love-meter-btn" class="btn">Measure my love?</button>
+    </section>
+    
+    <div class="divider"></div>
+    
+    <section id="love-meter" class="section">
+        <div class="floating-hearts" id="meter-hearts"></div>
+        <div class="bloom-effect" id="meter-bloom"></div>
+        <h2>How Much Do I Love You?</h2>
+        
+        <div class="love-meter-container">
+            <div class="meter-text">My love for you grows every second</div>
+            <div class="counter" id="love-counter">0</div>
+            <div class="meter-bar">
+                <div class="meter-progress" id="meter-progress"></div>
+            </div>
+        </div>
+        
+        <p>Numbers can't contain what I feel, but if they could...</p>
+        <p id="infinite-love">It would be infinite <span class="heart">♥</span></p>
+        
+        <button id="to-promises-btn" class="btn">My sacred promises to you</button>
+    </section>
+    
+    <div class="divider"></div>
+    
+    <section id="promises" class="section">
+        <div class="floating-hearts" id="promises-hearts"></div>
+        <div class="bloom-effect" id="promises-bloom"></div>
+        <h2>My Vows to Your Heart</h2>
+        
+        <div class="promise-container">
+            <div class="promise-card">
+                <h3>I Will Cherish</h3>
+                <p>Your past made you who you are, and I love who you are completely. I will never compare, only cherish every part of your journey.</p>
             </div>
             
             <div class="promise-card">
@@ -888,7 +914,7 @@
     
     <div class="divider"></div>
     
-    <section suspend">
+    <section id="final" class="section">
         <div class="floating-hearts" id="final-hearts"></div>
         <div class="bloom-effect" id="final-bloom"></div>
         <div id="final-letter">
@@ -920,7 +946,7 @@
         <p>If I could give you one thing in life, I would give you the ability to see yourself through my eyes. Only then would you realize how extraordinary you are to me.</p>
         <p>No matter where this journey takes us, know that in this moment, my heart is entirely yours.</p>
         <div style="margin-top: 2.5rem;">
-            <span class="heartbeat" style="font-size: 3.5rem;">❤</span>
+            <span class="heartbeat" style="font-size: 3.5rem;">♥</span>
         </div>
     </div>
     
@@ -929,6 +955,23 @@
         const progressBar = document.getElementById('progress-bar');
         let currentSection = 0;
         
+        // Music control
+        const bgm = document.getElementById('bgm');
+        const musicToggle = document.getElementById('music-toggle');
+        bgm.play().catch(() => {
+            console.log("Autoplay blocked, user interaction required");
+            musicToggle.textContent = 'Play Music';
+        });
+        musicToggle.addEventListener('click', () => {
+            if (bgm.paused) {
+                bgm.play();
+                musicToggle.textContent = 'Pause Music';
+            } else {
+                bgm.pause();
+                musicToggle.textContent = 'Play Music';
+            }
+        });
+
         sections.forEach(section => section.classList.remove('active'));
         
         const introAnimation = document.getElementById('intro-animation');
@@ -992,7 +1035,7 @@
             const items = document.querySelectorAll('.firsts-list li');
             items.forEach((item, index) => {
                 item.style.setProperty('--i', index);
-                setTimeout(() => item.classList.add('show'), index * 250);
+                setTimeout(() => item.classList.add('show'), index * 300);
             });
         }
         
@@ -1018,7 +1061,7 @@
                     loveCounter.textContent = Math.floor(counter).toLocaleString();
                     meterProgress.style.width = `${(counter / target) * 100}%`;
                     const heart = document.createElement('span');
-                    heart.innerHTML = '❤';
+                    heart.innerHTML = '♥';
                     heart.style.position = 'absolute';
                     heart.style.color = 'var(--color-heart)';
                     heart.style.fontSize = '1.6rem';
@@ -1031,7 +1074,7 @@
                 } else {
                     loveCounter.textContent = "∞";
                     meterProgress.style.width = "100%";
-                    document.getElementById('infinite-love').style.animation = "heartbeat 1.5s infinite";
+                    document.getElementById('infinite-love').style.animation = "heartbeat 1.4s infinite";
                 }
             };
             
@@ -1056,10 +1099,10 @@
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'heart-particle';
-                    heart.innerHTML = '❤';
+                    heart.innerHTML = '♥';
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.fontSize = (Math.random() * 20 + 14) + 'px';
-                    heart.style.animationDuration = (Math.random() * 7 + 3) + 's';
+                    heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
                     heart.style.animationDelay = (Math.random() * 1.5) + 's';
                     container.appendChild(heart);
                     
@@ -1120,8 +1163,8 @@
         }
         
         function createConfetti() {
-            const colors = ['#ff99b1', '#fff3f7', '#d6336c', '#ffdce3', '#fff1f5', '#f7d9a8'];
-            const shapes = ['❤', '✿', '❀'];
+            const colors = ['#ff8c94', '#ffe6ea', '#d81b60', '#ffd1d6', '#fff0f3'];
+            const shapes = ['♥', '✿', '❀'];
             const confettiCount = 80;
             
             for (let i = 0; i < confettiCount; i++) {
@@ -1140,49 +1183,15 @@
             }
         }
         
-        function createPetals() {
-            const container = document.getElementById('petal-container');
-            const petalCount = 20;
-            
-            for (let i = 0; i < petalCount; i++) {
-                const petal = document.createElement('div');
-                petal.className = 'petal';
-                petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                petal.style.animationDelay = (Math.random() * 5) + 's';
-                container.appendChild(petal);
-                
-                setTimeout(() => petal.remove(), parseFloat(petal.style.animationDuration) * 1000);
-            }
-        }
-        
         createHearts('welcome-hearts');
         createBloom('welcome-bloom');
-        createPetals();
         
         setInterval(() => {
             const activeHearts = sections[currentSection].querySelector('.floating-hearts').id;
             const activeBloom = sections[currentSection].querySelector('.bloom-effect').id;
             createHearts(activeHearts);
             createBloom(activeBloom);
-            createPetals();
         }, 2000);
-
-        // Audio controls
-        const audio = document.getElementById('bgm');
-        const playPauseBtn = document.getElementById('play-pause-btn');
-        let isPlaying = false;
-
-        playPauseBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                playPauseBtn.textContent = '▶️';
-            } else {
-                audio.play().catch(e => console.log('Audio play failed:', e));
-                playPauseBtn.textContent = '⏸️';
-            }
-            isPlaying = !isPlaying;
-        });
     </script>
 </body>
 </html>

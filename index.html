@@ -94,7 +94,7 @@
         }
         
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             -webkit-background-clip: text;
             background-clip: text;
@@ -102,7 +102,7 @@
         }
         
         h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             position: relative;
             display: inline-block;
         }
@@ -120,7 +120,7 @@
         }
         
         p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             max-width: 900px;
             margin: 0 auto 1.5rem;
             font-weight: 400;
@@ -130,7 +130,7 @@
             display: inline-block;
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             color: white;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -138,7 +138,7 @@
             transition: all 0.5s ease;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             box-shadow: 0 5px 20px rgba(168, 55, 102, 0.3);
             position: relative;
             overflow: hidden;
@@ -206,7 +206,7 @@
             opacity: 0;
             transform: translateX(-30px);
             transition: all 0.7s ease;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
         
         .firsts-list li.show {
@@ -224,7 +224,7 @@
             position: absolute;
             left: 0;
             color: var(--color-heart);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             top: -0.2rem;
             animation: heartbeat 1.5s infinite;
             animation-delay: calc(var(--i) * 0.2s);
@@ -232,7 +232,7 @@
         
         .memory-box {
             background-color: white;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
             margin: 2rem auto;
             max-width: 750px;
@@ -285,14 +285,14 @@
         }
         
         .meter-text {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
             font-weight: 600;
             color: var(--color-accent);
         }
         
         .counter {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             font-weight: bold;
             color: var(--color-heart);
             margin: 1.5rem 0;
@@ -333,10 +333,10 @@
         
         .promise-card {
             background: white;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
             width: calc(50% - 1.5rem);
-            min-width: 320px;
+            min-width: 300px;
             box-shadow: var(--shadow-soft);
             transform: translateY(40px);
             opacity: 0;
@@ -374,7 +374,7 @@
         #final-letter {
             background: white;
             border-radius: 20px;
-            padding: 4rem;
+            padding: 3rem;
             max-width: 800px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             margin: 3rem auto;
@@ -399,7 +399,7 @@
         }
         
         .letter-content {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: left;
             line-height: 2;
         }
@@ -421,7 +421,7 @@
         
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--color-heart);
             margin-top: 3rem;
             text-align: right;
@@ -476,11 +476,11 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
             background: white;
-            padding: 4rem;
+            padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 25px 60px rgba(0,0,0,0.2);
             z-index: 1001;
-            max-width: 550px;
+            max-width: 90%;
             text-align: center;
             transition: transform 0.6s ease;
             display: none;
@@ -493,7 +493,7 @@
         
         .secret-message h3 {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--color-heart);
             margin-bottom: 2rem;
         }
@@ -511,7 +511,7 @@
         
         .progress-container {
             position: fixed;
-            top: 30px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -533,12 +533,18 @@
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .section { padding: 4rem 1.5rem; margin: 1rem; }
-            #final-letter { padding: 3rem 2rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .section { padding: 3rem 1rem; margin: 1rem; }
+            .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .firsts-list li { font-size: 1rem; }
+            .memory-box { padding: 1.5rem; }
+            .promise-card { padding: 1.5rem; }
+            #final-letter { padding: 2rem 1.5rem; }
+            .secret-message { padding: 2rem; }
+            .secret-message h3 { font-size: 1.8rem; }
+            .signature { font-size: 2rem; }
             body { cursor: auto; }
-            .btn { padding: 1rem 2.5rem; }
         }
         
         #intro-animation {
@@ -556,8 +562,15 @@
         }
         
         #flower-svg {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        @media (max-width: 768px) {
+            #flower-svg {
+                width: 150px;
+                height: 150px;
+            }
         }
         
         #stem {
@@ -599,7 +612,7 @@
             position: absolute;
             bottom: 100px;
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--color-heart);
             opacity: 0;
             animation: fadeInText 2s ease forwards 3s;
@@ -787,7 +800,7 @@
         <p>If I could give you one thing in life, I would give you the ability to see yourself through my eyes. Only then would you realize how extraordinary you are to me.</p>
         <p>No matter where this journey takes us, know that in this moment, my heart is entirely yours.</p>
         <div style="margin-top: 2rem;">
-            <span class="heartbeat" style="font-size: 3.5rem;">❤</span>
+            <span class="heartbeat" style="font-size: 3rem;">❤</span>
         </div>
     </div>
     
@@ -820,50 +833,6 @@
         document.getElementById('restart-btn').addEventListener('click', () => navigateTo(0));
         document.getElementById('secret-btn').addEventListener('click', showSecretMessage);
         document.querySelector('.close-message').addEventListener('click', hideSecretMessage);
-        
-        document.querySelectorAll('.firsts-list li').forEach(item => {
-            item.addEventListener('click', () => {
-                const heart = document.createElement('span');
-                heart.innerHTML = '❤';
-                heart.style.position = 'absolute';
-                heart.style.color = 'var(--color-heart)';
-                heart.style.fontSize = '2.5rem';
-                heart.style.left = '50%';
-                heart.style.top = '50%';
-                heart.style.transform = 'translate(-50%, -50%)';
-                heart.style.animation = 'float-up 1.2s forwards';
-                item.appendChild(heart);
-                setTimeout(() => heart.remove(), 1200);
-            });
-        });
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                navigateTo(currentSection + 1);
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                navigateTo(currentSection - 1);
-            }
-        });
-        
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-        
-        document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-        
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                navigateTo(currentSection + 1);
-            } else if (touchEndX > touchStartX + 50) {
-                navigateTo(currentSection - 1);
-            }
-        }
         
         function navigateTo(index) {
             if (index < 0) index = 0;
@@ -932,7 +901,7 @@
                     heart.innerHTML = '❤';
                     heart.style.position = 'absolute';
                     heart.style.color = 'var(--color-heart)';
-                    heart.style.fontSize = '2rem';
+                    heart.style.fontSize = '1.5rem';
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.top = Math.random() * 100 + '%';
                     heart.style.animation = 'float-up 2.5s forwards';
@@ -962,7 +931,7 @@
             
             container.innerHTML = '';
             const isMobile = window.innerWidth < 768;
-            const heartCount = isMobile ? 15 : 30;
+            const heartCount = isMobile ? 10 : 20;
             
             for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
@@ -970,15 +939,15 @@
                     heart.className = 'heart-particle';
                     heart.innerHTML = '❤';
                     heart.style.left = Math.random() * 100 + '%';
-                    heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
-                    heart.style.animationDuration = (Math.random() * 12 + 6) + 's';
-                    heart.style.animationDelay = (Math.random() * 3) + 's';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                    heart.style.animationDelay = (Math.random() * 2) + 's';
                     container.appendChild(heart);
                     
                     setTimeout(() => {
                         if (heart.parentNode === container) container.removeChild(heart);
                     }, parseFloat(heart.style.animationDuration) * 1000);
-                }, i * 150);
+                }, i * 200);
             }
         }
         
@@ -995,9 +964,9 @@
         
         function createConfetti() {
             const colors = ['#ff2d75', '#ff8fab', '#a83766', '#ff5c8a', '#ff9eb7', '#ffd3e0'];
-            const shapes = ['❤', '★', '✿', '❀', '●'];
+            const shapes = ['❤', '★', '✿', '❀'];
             const isMobile = window.innerWidth < 768;
-            const confettiCount = isMobile ? 75 : 150;
+            const confettiCount = isMobile ? 50 : 100;
             
             for (let i = 0; i < confettiCount; i++) {
                 setTimeout(() => {
@@ -1006,12 +975,12 @@
                     confetti.style.left = Math.random() * 100 + 'vw';
                     confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
                     confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
-                    confetti.style.fontSize = (Math.random() * 25 + 15) + 'px';
-                    confetti.style.animationDuration = (Math.random() * 4 + 2.5) + 's';
+                    confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
                     document.body.appendChild(confetti);
                     
-                    setTimeout(() => confetti.remove(), 3500);
-                }, i * 25);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
             }
         }
         
@@ -1020,7 +989,7 @@
         setInterval(() => {
             const activeHearts = sections[currentSection].querySelector('.floating-hearts').id;
             createHearts(activeHearts);
-        }, 4000);
+        }, 3000);
     </script>
 </body>
 </html>

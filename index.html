@@ -555,6 +555,7 @@
         .secret-message.show {
             transform: translate(-50%, -50%) scale(1);
             display: block;
+            animation: glowPulse 2s ease-in-out infinite;
         }
 
         .secret-message h3 {
@@ -846,6 +847,45 @@
             margin-bottom: 2rem;
         }
 
+        /* New CSS for Surprise Animation */
+        @keyframes bloomFlower {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+            100% { transform: scale(1) rotate(360deg); opacity: 1; }
+        }
+
+        .flower-particle {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23e91e63" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path fill="%23fce4ec" d="M12 6c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: bloomFlower 1.5s ease-in-out forwards;
+            z-index: 1002;
+        }
+
+        @keyframes sparkleSurprise {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        .surprise-sparkle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, white, var(--color-heart));
+            border-radius: 50%;
+            animation: sparkleSurprise 1.2s ease-in-out forwards;
+            z-index: 1003;
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(233, 30, 99, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+        }
+
         @media (max-width: 600px) {
             body {
                 font-size: 14px;
@@ -900,8 +940,8 @@
             }
 
             #intro-text {
-                    font-size: 1.8rem;
-                    bottom: 100px;
+                font-size: 1.8rem;
+                bottom: 100px;
             }
 
             #flower-svg {
@@ -915,6 +955,17 @@
 
             #welcome-screen p {
                 font-size: 0.9rem;
+            }
+
+            /* Adjust flower size for mobile */
+            .flower-particle {
+                width: 25px;
+                height: 25px;
+            }
+
+            .surprise-sparkle {
+                width: 10px;
+                height: 10px;
             }
         }
     </style>
@@ -1102,6 +1153,11 @@
                 <p style="--i: 5">This is just our first chapter, but already I know it's my favorite story. However our pages turn, I want to read them all with you.</p>
 
                 <p style="--i: 6">With all that I am and all I hope to be,</p>
+
+                <p style="--i: 7">P.S: Ako may permi sabaan hahahaha naa gyuy times nga ganahan ko ma minaw nimo like how your day went or unsay na feel nimo — lonely baka, na suko baka, or unsa bana nahan ko minaw nimo.</p>
+
+                <p style="--i: 8">And in those moments when I miss you most, I find comfort knowing every laugh, every quiet pause, every shared glance writes another line in our story. My heart is yours, through every playful tease and every tender silence, forever.</p>
+                
                 <div class="signature"><span>Kent</span></div>
             </div>
         </div>
@@ -1410,6 +1466,8 @@
 
         function showSecretMessage() {
             createConfetti();
+            createSurpriseFlowers();
+            createSurpriseSparkles();
             document.getElementById('secret-message').classList.add('show');
             document.body.style.overflow = 'hidden';
         }
@@ -1421,7 +1479,7 @@
 
         function createConfetti() {
             const colors = ['#e91e63', '#fce4ec', '#c2185b', '#f8bbd0', '#fff1f5'];
-            const shapes = ['♥', '❁', '❀'];
+            const shapes = ['♥', '❁', '❀', '✿'];
             const confettiCount = 60;
 
             for (let i = 0; i < confettiCount; i++) {
@@ -1435,8 +1493,48 @@
                     confetti.style.animationDuration = (Math.random() * 1.5 + 1) + 's';
                     document.body.appendChild(confetti);
 
-                    setTimeout(() => confetti.remove(), 1500);
+                    setTimeout(() => confetti.remove(), 3000);
                 }, i * 15);
+            }
+        }
+
+        function createSurpriseFlowers() {
+            const container = document.getElementById('secret-message');
+            const flowerCount = 10;
+
+            for (let i = 0; i < flowerCount; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.className = 'flower-particle';
+                    flower.style.left = (Math.random() * 80 + 10) + '%';
+                    flower.style.top = (Math.random() * 80 + 10) + '%';
+                    flower.style.animationDelay = (Math.random() * 0.5) + 's';
+                    container.appendChild(flower);
+
+                    setTimeout(() => {
+                        if (flower.parentNode === container) container.removeChild(flower);
+                    }, 2000);
+                }, i * 100);
+            }
+        }
+
+        function createSurpriseSparkles() {
+            const container = document.getElementById('secret-message');
+            const sparkleCount = 15;
+
+            for (let i = 0; i < sparkleCount; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'surprise-sparkle';
+                    sparkle.style.left = (Math.random() * 80 + 10) + '%';
+                    sparkle.style.top = (Math.random() * 80 + 10) + '%';
+                    sparkle.style.animationDelay = (Math.random() * 0.8) + 's';
+                    container.appendChild(sparkle);
+
+                    setTimeout(() => {
+                        if (sparkle.parentNode === container) container.removeChild(sparkle);
+                    }, 1200);
+                }, i * 80);
             }
         }
 

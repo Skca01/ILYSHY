@@ -775,10 +775,9 @@
     </style>
 </head>
 <body>
-    <audio id="bgm" loop>
+    <audio id="bgm" loop preload="auto">
+        <source src="those_eyes.mp3" type="audio/mp3">
         <source src="https://filebin.net/fvajwx7vd1ef2x8d/those_eyes.mp3" type="audio/mp3">
-        <!-- If Google Drive fails, upload to Filebin (https://filebin.net/) and replace with: -->
-        <!-- <source src="https://filebin.net/xxx/those-eyes.mp3" type="audio/mp3"> -->
         Your browser does not support the audio element.
     </audio>
     <button id="music-toggle" class="music-toggle">Play Music</button>
@@ -968,44 +967,95 @@
         const musicToggle = document.getElementById('music-toggle');
         const skipIntroBtn = document.getElementById('skip-intro');
         const startBtn = document.getElementById('start-btn');
+        let isPlaying = false;
+        let lastPlayAttempt = 0;
+        const debounceDelay = 500; // 500ms cooldown
 
         function playMusic() {
-            bgm.play().then(() => {
-                musicToggle.textContent = 'Pause Music';
-            }).catch((error) => {
-                console.error('Playback failed:', error);
-                musicToggle.textContent = 'Play Music';
-                if (error.name === 'NotAllowedError') {
-                    alert('Please click "Play Music" to start the song, as browsers require interaction for audio playback.');
-                } else {
-                    alert('Could not play the song. Please try clicking "Play Music" or ensure your browser allows audio. Error: ' + error.message);
+            const now = Date.now();
+            if (now - lastPlayAttempt < debounceDelay) {
+                console.log('Play attempt debounced');
+                return;
+            }
+            lastPlayAttempt = now;
+
+            if (isPlaying) {
+                console.log('Already playing, ignoring play request');
+                return;
+            }
+
+            console.log('Attempting to play audio. ReadyState:', bgm.readyState);
+            if (bgm.readyState < 2) {
+                console.log('Audio not ready, waiting for canplay');
+                bgm.addEventListener('canplay', tryPlay, { once: true });
+                return;
+            }
+
+            tryPlay();
+        }
+
+        function tryPlay() {
+            setTimeout(() => {
+                const playPromise = bgm.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        musicToggle.textContent = 'Pause Music';
+                        console.log('Audio playing successfully');
+                    }).catch((error) => {
+                        isPlaying = false;
+                        console.error('Playback failed:', error);
+                        musicToggle.textContent = 'Play Music';
+                        if (error.message.includes('interrupted by a call to pause')) {
+                            alert('Playback was interrupted. Please wait a moment and click "Play Music" again. Ensure your device audio is not muted.');
+                        } else if (error.name === 'NotAllowedError') {
+                            alert('Please click "Play Music" to start the song, as browsers require interaction for audio playback.');
+                        } else {
+                            alert('Could not play the song. Please check your internet connection, ensure audio is not muted, and try clicking "Play Music" again. Error: ' + error.message);
+                        }
+                    });
                 }
-            });
+            }, 100); // 100ms delay for buffering
+        }
+
+        function pauseMusic() {
+            if (!isPlaying) {
+                console.log('Not playing, ignoring pause request');
+                return;
+            }
+            bgm.pause();
+            isPlaying = false;
+            musicToggle.textContent = 'Play Music';
+            console.log('Audio paused');
         }
 
         bgm.onerror = () => {
-            console.error('Audio loading failed. Possible CORS or file issue.');
+            isPlaying = false;
+            console.error('Audio loading failed. Possible file or network issue.');
             musicToggle.textContent = 'Play Music';
-            alert('Failed to load the song. Please try clicking "Play Music" or contact support if the issue persists.');
+            alert('Failed to load the song. Please check your internet connection or try clicking "Play Music" again.');
         };
 
+        bgm.addEventListener('loadedmetadata', () => {
+            console.log('Audio metadata loaded. Duration:', bgm.duration);
+        });
+
         musicToggle.addEventListener('click', () => {
-            if (bgm.paused) {
+            if (!isPlaying) {
                 playMusic();
             } else {
-                bgm.pause();
-                musicToggle.textContent = 'Play Music';
+                pauseMusic();
             }
         });
 
         skipIntroBtn.addEventListener('click', () => {
             startMainContent();
-            playMusic();
+            if (!isPlaying) playMusic();
         });
 
         startBtn.addEventListener('click', () => {
             navigateTo(1);
-            playMusic();
+            if (!isPlaying) playMusic();
         });
 
         sections.forEach(section => section.classList.remove('active'));

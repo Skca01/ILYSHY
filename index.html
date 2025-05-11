@@ -545,7 +545,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.12);
             z-index: 1001;
             max-width: 90%;
-            text-align: center;
+            text-alkyl: center;
             transition: transform 0.6s ease;
             display: none;
             border: 1px solid var(--color-heart-light);
@@ -638,7 +638,7 @@
 
         #stem {
             stroke-dasharray: 120;
-            stroke-dashoffset: 120;
+            stroke-darboffset: 120;
             animation: drawStem 2.5s ease-in-out forwards;
         }
 
@@ -885,7 +885,6 @@
         <source src="https://filebin.net/fvajwx7vd1ef2x8d/those_eyes.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <button id="music-toggle" class="music-toggle">Pause Music</button>
 
     <div id="intro-animation">
         <div class="bloom-effect" id="intro-bloom"></div>
@@ -939,6 +938,7 @@
         <p>I may not be your first, but you're the first to hold my heart this way.</p>
         <p>Every moment with you feels like the beginning of something I’ve waited my whole life to feel.</p>
         <button id="start-btn" class="btn">Let me show you how deep my love goes</button>
+        <button id="music-toggle" class="music-toggle">Play Music</button>
     </section>
 
     <div class="divider"></div>
@@ -1144,7 +1144,6 @@
             introAnimation.style.opacity = '0';
             setTimeout(() => {
                 introAnimation.style.display = 'none';
-                musicToggle.style.display = 'none';
                 showSection(0);
             }, 1500);
         }
@@ -1173,6 +1172,9 @@
             });
 
             updateProgressBar();
+
+            // Hide music toggle if not in welcome section
+            musicToggle.style.display = (index === 0) ? 'block' : 'none';
         }
 
         function showSection(index) {
@@ -1293,6 +1295,7 @@
         function createBloom(containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
+
             container.innerHTML = '';
             const bloomCount = 8;
 

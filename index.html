@@ -6,17 +6,18 @@
     <title>My Heart's Journey to You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-heart: #ff6b9b;
-            --color-heart-light: #ffe4ec;
-            --color-bg: #fff6f8;
-            --color-text: #2a2a36;
-            --color-accent: #c2185b;
-            --color-light: #fff1f5;
-            --color-secondary: #fed7e2;
-            --shadow-soft: 0 6px 20px rgba(0,0,0,0.12);
+            --color-heart: #ff7597;
+            --color-heart-light: #fff0f5;
+            --color-bg: #fff8fa;
+            --color-text: #28283c;
+            --color-accent: #b0004d;
+            --color-light: #ffebf0;
+            --color-secondary: #ffccd5;
+            --shadow-soft: 0 8px 24px rgba(0,0,0,0.15);
+            --shadow-glow: 0 0 15px rgba(255, 117, 151, 0.4);
         }
 
         * {
@@ -29,7 +30,7 @@
             font-family: 'Poppins', sans-serif;
             background: var(--color-bg);
             color: var(--color-text);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
             position: relative;
@@ -42,37 +43,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path fill="none" stroke="%23ffe4ec" stroke-width="0.4" d="M30 15c-6 0-10 4-10 10s4 10 10 10 10-4 10-10-4-10-10-10z"/></svg>') repeat;
-            opacity: 0.1;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path fill="none" stroke="%23fff0f5" stroke-width="0.3" d="M25 12c-5 0-8 3-8 8s3 8 8 8 8-3 8-8-3-8-8-8z"/></svg>') repeat;
+            opacity: 0.12;
             z-index: -1;
         }
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            20% { transform: scale(1.25); }
+            20% { transform: scale(1.3); }
             40% { transform: scale(1); }
-            60% { transform: scale(1.25); }
+            60% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
 
         @keyframes glow {
             0% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
+            50% { filter: brightness(1.25); }
             100% { filter: brightness(1); }
         }
 
+        @keyframes shimmer {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+
         .heartbeat {
-            animation: heartbeat 1.3s infinite;
+            animation: heartbeat 1.2s infinite;
             color: var(--color-heart);
         }
 
         .glow {
-            animation: glow 2s infinite;
+            animation: glow 2.2s infinite;
         }
 
         .section {
             min-height: 100vh;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.8rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,13 +86,14 @@
             text-align: center;
             position: relative;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            margin: 1rem;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            margin: 1.2rem;
             box-shadow: var(--shadow-soft);
             overflow: hidden;
+            border: 1px solid var(--color-heart-light);
         }
 
         .section.active {
@@ -97,63 +104,65 @@
         h1, h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             color: var(--color-accent);
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: glow 2.5s infinite;
+            animation: glow 2.3s infinite;
         }
 
         h2 {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             position: relative;
+            font-family: 'Great Vibes', cursive;
         }
 
         h2:after {
-            content: "✿";
+            content: "❀";
             position: absolute;
-            bottom: -15px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--color-heart-light);
-            animation: heartbeat 1.3s infinite;
+            animation: heartbeat 1.2s infinite;
         }
 
         p {
             font-size: 0.95rem;
             max-width: 85%;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.2rem;
             font-weight: 400;
         }
 
         .btn {
             background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
             color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 35px;
+            padding: 1rem 2.2rem;
+            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 1.5rem;
-            transition: all 0.4s ease;
+            margin-top: 1.8rem;
+            transition: all 0.5s ease;
             border: none;
             cursor: pointer;
             font-size: 0.95rem;
-            box-shadow: 0 5px 18px rgba(194, 24, 91, 0.3);
+            box-shadow: var(--shadow-glow);
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
 
         .btn:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 10px 24px rgba(194, 24, 91, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 28px rgba(176, 0, 77, 0.4);
+            background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
         }
 
         .btn:before {
@@ -163,32 +172,44 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
-            transition: left 0.4s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
             z-index: -1;
         }
 
         .btn:hover:before {
-            left: 0;
+            left: 100%;
         }
 
         .divider {
-            width: 85%;
+            width: 90%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--color-heart-light), transparent);
-            margin: 2rem auto;
-            opacity: 0.7;
+            margin: 2.5rem auto;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '❀';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-heart);
+            font-size: 1.5rem;
+            animation: heartbeat 1.2s infinite;
         }
 
         .section::before {
-            content: '❀';
+            content: '❤';
             position: absolute;
-            top: 15px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--color-heart-light);
-            opacity: 0.15;
+            opacity: 0.1;
         }
 
         .heart {
@@ -198,18 +219,21 @@
         .firsts-list {
             text-align: left;
             max-width: 90%;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
         }
 
         .firsts-list li {
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             list-style-type: none;
             position: relative;
-            padding-left: 2.8rem;
+            padding-left: 3rem;
             opacity: 0;
-            transform: translateX(-25px);
-            transition: all 0.6s ease;
-            font-size: 0.9rem;
+            transform: translateX(-30px);
+            transition: all 0.7s ease;
+            font-size: 0.95rem;
+            background: linear-gradient(90deg, var(--color-heart-light), transparent);
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border-radius: 12px;
         }
 
         .firsts-list li.show {
@@ -218,28 +242,29 @@
         }
 
         .firsts-list li:before {
-            content: "❀";
+            content: "❤";
             position: absolute;
-            left: 0;
+            left: 0.8rem;
             color: var(--color-heart);
-            font-size: 1.3rem;
-            top: 0;
-            animation: heartbeat 1.3s infinite;
+            font-size: 1.4rem;
+            top: 0.8rem;
+            animation: heartbeat 1.2s infinite;
             animation-delay: calc(var(--i) * 0.1s);
         }
 
         .memory-box {
             background: white;
-            padding: 1.8rem;
-            border-radius: 18px;
-            margin: 1.5rem auto;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 1.8rem auto;
             max-width: 90%;
             box-shadow: var(--shadow-soft);
             position: relative;
-            transform: scale(0.94);
-            transition: all 0.5s ease;
+            transform: scale(0.92);
+            transition: all 0.6s ease;
             opacity: 0;
-            border: 1px solid var(--color-heart-light);
+            border: 1.5px solid var(--color-heart-light);
+            background: linear-gradient(180deg, var(--color-light), white);
         }
 
         .memory-box.show {
@@ -253,20 +278,20 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--color-heart), var(--color-heart-light));
-            border-radius: 18px 18px 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         .hidden-message {
             display: none;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             font-style: italic;
             color: var(--color-accent);
             opacity: 0;
-            transition: opacity 0.4s ease;
-            font-size: 0.85rem;
-            animation: fadeIn 0.5s ease forwards;
+            transition: opacity 0.5s ease;
+            font-size: 0.9rem;
+            animation: fadeIn 0.6s ease forwards;
         }
 
         .memory-box:hover .hidden-message {
@@ -275,76 +300,104 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .love-meter-container {
             width: 90%;
-            margin: 2rem auto;
-            padding: 1.8rem;
+            margin: 2.5rem auto;
+            padding: 2rem;
             background: white;
-            border-radius: 14px;
+            border-radius: 16px;
             box-shadow: var(--shadow-soft);
-            border: 1px solid var(--color-heart-light);
+            border: 1.5px solid var(--color-heart-light);
+            position: relative;
+        }
+
+        .love-meter-container::before {
+            content: '❀';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--color-heart);
+            animation: heartbeat 1.2s infinite;
         }
 
         .meter-text {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
             font-weight: 600;
             color: var(--color-accent);
+            font-family: 'Caveat', cursive;
         }
 
         .counter {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: bold;
             color: var(--color-heart);
-            margin: 1rem 0;
-            font-family: 'Caveat', cursive;
-            animation: glow 2s infinite;
+            margin: 1.2rem 0;
+            font-family: 'Great Vibes', cursive;
+            animation: glow 2.1s infinite;
         }
 
         .meter-bar {
-            height: 12px;
+            height: 14px;
             background-color: var(--color-secondary);
-            border-radius: 6px;
+            border-radius: 7px;
             overflow: hidden;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
+            position: relative;
         }
 
         .meter-progress {
             height: 100%;
             width: 0;
             background: linear-gradient(90deg, var(--color-heart), var(--color-heart-light));
-            border-radius: 6px;
-            transition: width 0.5s ease;
-            box-shadow: 0 0 10px var(--color-heart);
+            border-radius: 7px;
+            transition: width 0.6s ease;
+            box-shadow: 0 0 12px var(--color-heart);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meter-progress::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
         }
 
         @keyframes float-up {
             0% { transform: translateY(0) scale(0); opacity: 1; }
-            100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+            100% { transform: translateY(-70px) scale(1.5); opacity: 0; }
         }
 
         .promise-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.8rem;
             max-width: 90%;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
         }
 
         .promise-card {
             background: white;
-            padding: 1.8rem;
-            border-radius: 18px;
+            padding: 2rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-soft);
-            transform: translateY(30px);
+            transform: translateY(35px);
             opacity: 0;
-            transition: all 0.6s ease;
+            transition: all 0.7s ease;
             position: relative;
-            border: 1px solid var(--color-heart-light);
+            border: 1.5px solid var(--color-heart-light);
+            background: linear-gradient(180deg, var(--color-light), white);
         }
 
         .promise-card.show {
@@ -353,8 +406,8 @@
         }
 
         .promise-card:hover {
-            box-shadow: 0 0 22px rgba(255, 107, 155, 0.35);
-            transform: translateY(-6px);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-8px);
         }
 
         .promise-card:before {
@@ -362,26 +415,34 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 6px;
             height: 100%;
             background: linear-gradient(to bottom, var(--color-heart), var(--color-heart-light));
         }
 
+        .promise-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
         #final-letter {
             background: white;
-            border-radius: 18px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 2.8rem;
             max-width: 90%;
             box-shadow: var(--shadow-soft);
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             position: relative;
-            transform: perspective(1000px) rotateX(-12deg);
-            transition: transform 0.6s ease;
-            border: 1px solid var(--color-heart-light);
+            transform: perspective(1200px) rotateX(-15deg);
+            transition: transform 0.7s ease;
+            border: 1.5px solid var(--color-heart-light);
+            background: linear-gradient(180deg, var(--color-light), white);
         }
 
         #final-letter:hover {
-            transform: perspective(1000px) rotateX(0);
+            transform: perspective(1200px) rotateX(0);
         }
 
         #final-letter:before {
@@ -390,31 +451,31 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 8px;
             background: linear-gradient(90deg, var(--color-heart), var(--color-heart-light));
-            border-radius: 18px 18px 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
         .letter-content {
             font-size: 0.95rem;
             text-align: left;
-            line-height: 1.9;
+            line-height: 2;
         }
 
         .letter-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             opacity: 0;
-            animation: fadeIn 0.5s ease forwards;
-            animation-delay: calc(var(--i) * 0.3s);
+            animation: fadeIn 0.6s ease forwards;
+            animation-delay: calc(var(--i) * 0.4s);
         }
 
         .signature {
-            font-family: 'Caveat', cursive;
-            font-size: 2.2rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
             color: var(--color-heart);
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             text-align: right;
-            animation: write 2s forwards;
+            animation: write 2.5s forwards;
         }
 
         @keyframes write {
@@ -440,19 +501,19 @@
         }
 
         @keyframes float-up-particle {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.3); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-120px) rotate(360deg) scale(1.1); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.2); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-150px) rotate(360deg) scale(1.2); opacity: 0; }
         }
 
         .confetti {
             position: fixed;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             opacity: 0;
             z-index: 1000;
-            animation: confetti-fall 2.8s linear forwards;
+            animation: confetti-fall 3s linear forwards;
         }
 
         @keyframes confetti-fall {
@@ -466,15 +527,16 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 22px 55px rgba(0,0,0,0.2);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
             z-index: 1001;
             max-width: 90%;
             text-align: center;
-            transition: transform 0.6s ease;
+            transition: transform 0.7s ease;
             display: none;
-            border: 1px solid var(--color-heart-light);
+            border: 1.5px solid var(--color-heart-light);
+            background: linear-gradient(180deg, var(--color-light), white);
         }
 
         .secret-message.show {
@@ -483,43 +545,43 @@
         }
 
         .secret-message h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
             color: var(--color-heart);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .close-message {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
             color: var(--color-text);
         }
 
         .progress-container {
             position: fixed;
-            top: 12px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            height: 6px;
-            background-color: rgba(255,255,255,0.6);
-            border-radius: 6px;
+            height: 7px;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 7px;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
         }
 
         .progress-bar {
             height: 100%;
             width: 0;
             background: linear-gradient(90deg, var(--color-heart), var(--color-heart-light));
-            border-radius: 6px;
-            transition: width 0.3s ease;
-            box-shadow: 0 0 8px var(--color-heart);
+            border-radius: 7px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--color-heart);
         }
 
         #intro-animation {
@@ -533,18 +595,18 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 1.2s ease;
+            transition: opacity 1.5s ease;
         }
 
         #flower-svg {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
         }
 
         #stem {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 120;
-            animation: drawStem 2s ease-in-out forwards;
+            stroke-dasharray: 150;
+            stroke-dashoffset: 150;
+            animation: drawStem 2.5s ease-in-out forwards;
         }
 
         @keyframes drawStem {
@@ -553,53 +615,55 @@
 
         #bud {
             transform: scale(0);
-            animation: growBud 2s ease-in-out forwards 1s;
+            animation: growBud 2.5s ease-in-out forwards 1.2s;
         }
 
         @keyframes growBud {
             0% { transform: scale(0); }
-            80% { transform: scale(1.2); }
+            80% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
 
         .petal-group {
             transform: scale(0);
-            transform-origin: 60px 60px;
-            animation: unfurlPetal 2s ease-in-out forwards;
+            transform-origin: 75px 75px;
+            animation: unfurlPetal 2.5s ease-in-out forwards;
         }
 
-        .petal-group:nth-child(3) { animation-delay: 2s; }
-        .petal-group:nth-child(4) { animation-delay: 2.2s; }
-        .petal-group:nth-child(5) { animation-delay: 2.4s; }
-        .petal-group:nth-child(6) { animation-delay: 2.6s; }
-        .petal-group:nth-child(7) { animation-delay: 2.8s; }
-        .petal-group:nth-child(8) { animation-delay: 3s; }
+        .petal-group:nth-child(3) { animation-delay: 2.5s; }
+        .petal-group:nth-child(4) { animation-delay: 2.7s; }
+        .petal-group:nth-child(5) { animation-delay: 2.9s; }
+        .petal-group:nth-child(6) { animation-delay: 3.1s; }
+        .petal-group:nth-child(7) { animation-delay: 3.3s; }
+        .petal-group:nth-child(8) { animation-delay: 3.5s; }
+        .petal-group:nth-child(9) { animation-delay: 3.7s; }
+        .petal-group:nth-child(10) { animation-delay: 3.9s; }
 
         @keyframes unfurlPetal {
             0% { transform: scale(0) rotate(0deg); }
-            70% { transform: scale(1.1) rotate(360deg); }
+            70% { transform: scale(1.2) rotate(360deg); }
             100% { transform: scale(1) rotate(360deg); }
         }
 
         #heart-center {
             transform: scale(0);
-            animation: growHeart 1.5s ease-in-out forwards 3.5s;
+            animation: growHeart 2s ease-in-out forwards 4s;
         }
 
         @keyframes growHeart {
             0% { transform: scale(0); }
-            80% { transform: scale(1.2); }
+            80% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
 
         #intro-text {
             position: absolute;
-            bottom: 90px;
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
+            bottom: 100px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
             color: var(--color-heart);
             opacity: 0;
-            animation: fadeInText 2s ease forwards 4s;
+            animation: fadeInText 2.5s ease forwards 4.5s;
         }
 
         @keyframes fadeInText {
@@ -608,37 +672,62 @@
 
         #skip-intro {
             position: absolute;
-            bottom: 25px;
-            right: 25px;
-            background: rgba(255,255,255,0.9);
-            border: 1.5px solid var(--color-heart);
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid var(--color-heart);
             color: var(--color-accent);
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.4s ease;
         }
 
         #skip-intro:hover {
             background: var(--color-heart);
             color: white;
+            box-shadow: var(--shadow-glow);
         }
 
         .sparkle {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, rgba(255,255,255,0.9), var(--color-heart-light));
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255,255,255,0.95), var(--color-heart-light));
             border-radius: 50%;
-            animation: sparkle 1.5s ease-in-out infinite;
+            animation: sparkle 1.8s ease-in-out infinite;
             z-index: 10;
         }
 
         @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0.9; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(0); opacity: 0.9; }
+        }
+
+        .bloom-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bloom-particle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, var(--color-heart-light), transparent);
+            border-radius: 50%;
+            animation: bloom 2s ease-in-out forwards;
+        }
+
+        @keyframes bloom {
             0% { transform: scale(0); opacity: 0.8; }
-            50% { transform: scale(1); opacity: 0.4; }
-            100% { transform: scale(0); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
         }
     </style>
 </head>
@@ -677,6 +766,7 @@
     
     <section id="welcome" class="section">
         <div class="floating-hearts" id="welcome-hearts"></div>
+        <div class="bloom-effect" id="welcome-bloom"></div>
         <h1>This is my heart's journey to you</h1>
         <p>I may not be your first, but you're the first to hold my heart this way.</p>
         <p>Every moment with you feels like the beginning of something I’ve waited my whole life to feel.</p>
@@ -687,7 +777,8 @@
     
     <section id="firsts" class="section">
         <div class="floating-hearts" id="firsts-hearts"></div>
-        <h2>You're My First <span class="heartbeat">❀</span></h2>
+        <div class="bloom-effect" id="firsts-bloom"></div>
+        <h2>You're My First <span class="heartbeat">❤</span></h2>
         <ul class="firsts-list">
             <li>My first love that felt both exciting and completely natural.</li>
             <li>My first thought in the morning and my last whisper at night.</li>
@@ -703,6 +794,7 @@
     
     <section id="memories" class="section">
         <div class="floating-hearts" id="memories-hearts"></div>
+        <div class="bloom-effect" id="memories-bloom"></div>
         <h2>Memories Etched in My Heart</h2>
         
         <div class="memory-box" id="memory-1">
@@ -727,6 +819,7 @@
     
     <section id="love-meter" class="section">
         <div class="floating-hearts" id="meter-hearts"></div>
+        <div class="bloom-effect" id="meter-bloom"></div>
         <h2>How Much Do I Love You?</h2>
         
         <div class="love-meter-container">
@@ -738,7 +831,7 @@
         </div>
         
         <p>Numbers can't contain what I feel, but if they could...</p>
-        <p id="infinite-love">It would be infinite <span class="heart">❀</span></p>
+        <p id="infinite-love">It would be infinite <span class="heart">❤</span></p>
         
         <button id="to-promises-btn" class="btn">My sacred promises to you</button>
     </section>
@@ -747,6 +840,7 @@
     
     <section id="promises" class="section">
         <div class="floating-hearts" id="promises-hearts"></div>
+        <div class="bloom-effect" id="promises-bloom"></div>
         <h2>My Vows to Your Heart</h2>
         
         <div class="promise-container">
@@ -778,6 +872,7 @@
     
     <section id="final" class="section">
         <div class="floating-hearts" id="final-hearts"></div>
+        <div class="bloom-effect" id="final-bloom"></div>
         <div id="final-letter">
             <h2>My Dearest Love,</h2>
             
@@ -798,7 +893,7 @@
         </div>
         
         <button id="restart-btn" class="btn">Read it again?</button>
-        <button id="secret-btn" class="btn" style="margin-top: 1rem; background: var(--color-heart-light);">A special surprise</button>
+        <button id="secret-btn" class="btn" style="margin-top: 1.2rem; background: var(--color-heart-light);">A special surprise</button>
     </section>
     
     <div class="secret-message" id="secret-message">
@@ -806,8 +901,8 @@
         <h3>Just Between Us</h3>
         <p>If I could give you one thing in life, I would give you the ability to see yourself through my eyes. Only then would you realize how extraordinary you are to me.</p>
         <p>No matter where this journey takes us, know that in this moment, my heart is entirely yours.</p>
-        <div style="margin-top: 1.5rem;">
-            <span class="heartbeat" style="font-size: 2.8rem;">❀</span>
+        <div style="margin-top: 2rem;">
+            <span class="heartbeat" style="font-size: 3rem;">❤</span>
         </div>
     </div>
     
@@ -826,11 +921,11 @@
             setTimeout(() => {
                 introAnimation.style.display = 'none';
                 showSection(0);
-            }, 1200);
+            }, 1500);
         }
         
         skipIntroBtn.addEventListener('click', startMainContent);
-        setTimeout(startMainContent, 6000);
+        setTimeout(startMainContent, 7000);
         
         document.getElementById('start-btn').addEventListener('click', () => navigateTo(1));
         document.getElementById('to-memories-btn').addEventListener('click', () => navigateTo(2));
@@ -850,7 +945,7 @@
             showSection(currentSection);
             
             window.scrollTo({
-                top: sections[currentSection].offsetTop - 40,
+                top: sections[currentSection].offsetTop - 50,
                 behavior: 'smooth'
             });
             
@@ -861,12 +956,12 @@
             sections[index].classList.add('active');
             
             switch(index) {
-                case 1: animateFirstsList(); createHearts('firsts-hearts'); break;
-                case 2: animateMemoryBoxes(); createHearts('memories-hearts'); break;
-                case 3: startLoveCounter(); createHearts('meter-hearts'); break;
-                case 4: animatePromiseCards(); createHearts('promises-hearts'); break;
-                case 5: createHearts('final-hearts'); break;
-                default: createHearts('welcome-hearts');
+                case 1: animateFirstsList(); createHearts('firsts-hearts'); createBloom('firsts-bloom'); break;
+                case 2: animateMemoryBoxes(); createHearts('memories-hearts'); createBloom('memories-bloom'); break;
+                case 3: startLoveCounter(); createHearts('meter-hearts'); createBloom('meter-bloom'); break;
+                case 4: animatePromiseCards(); createHearts('promises-hearts'); createBloom('promises-bloom'); break;
+                case 5: createHearts('final-hearts'); createBloom('final-bloom'); break;
+                default: createHearts('welcome-hearts'); createBloom('welcome-bloom');
             }
         }
         
@@ -879,21 +974,21 @@
             const items = document.querySelectorAll('.firsts-list li');
             items.forEach((item, index) => {
                 item.style.setProperty('--i', index);
-                setTimeout(() => item.classList.add('show'), index * 250);
+                setTimeout(() => item.classList.add('show'), index * 200);
             });
         }
         
         function animateMemoryBoxes() {
             const boxes = document.querySelectorAll('.memory-box');
             boxes.forEach((box, index) => {
-                setTimeout(() => box.classList.add('show'), index * 450);
+                setTimeout(() => box.classList.add('show'), index * 400);
             });
         }
         
         function startLoveCounter() {
             let counter = 0;
             const target = 1000000;
-            const duration = 4500;
+            const duration = 4000;
             const increment = target / (duration / 16);
             
             const loveCounter = document.getElementById('love-counter');
@@ -905,20 +1000,20 @@
                     loveCounter.textContent = Math.floor(counter).toLocaleString();
                     meterProgress.style.width = `${(counter / target) * 100}%`;
                     const heart = document.createElement('span');
-                    heart.innerHTML = '❀';
+                    heart.innerHTML = '❤';
                     heart.style.position = 'absolute';
                     heart.style.color = 'var(--color-heart)';
-                    heart.style.fontSize = '1.3rem';
+                    heart.style.fontSize = '1.4rem';
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.top = Math.random() * 100 + '%';
-                    heart.style.animation = 'float-up 1.8s forwards';
+                    heart.style.animation = 'float-up 1.5s forwards';
                     document.getElementById('love-meter').appendChild(heart);
-                    setTimeout(() => heart.remove(), 1800);
+                    setTimeout(() => heart.remove(), 1500);
                     requestAnimationFrame(updateCounter);
                 } else {
                     loveCounter.textContent = "∞";
                     meterProgress.style.width = "100%";
-                    document.getElementById('infinite-love').style.animation = "heartbeat 1.3s infinite";
+                    document.getElementById('infinite-love').style.animation = "heartbeat 1.2s infinite";
                 }
             };
             
@@ -928,7 +1023,7 @@
         function animatePromiseCards() {
             const cards = document.querySelectorAll('.promise-card');
             cards.forEach((card, index) => {
-                setTimeout(() => card.classList.add('show'), index * 300);
+                setTimeout(() => card.classList.add('show'), index * 250);
             });
         }
         
@@ -937,38 +1032,60 @@
             if (!container) return;
             
             container.innerHTML = '';
-            const heartCount = 10;
+            const heartCount = 12;
             
             for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'heart-particle';
-                    heart.innerHTML = '❀';
+                    heart.innerHTML = '❤';
                     heart.style.left = Math.random() * 100 + '%';
-                    heart.style.fontSize = (Math.random() * 16 + 10) + 'px';
-                    heart.style.animationDuration = (Math.random() * 7 + 3) + 's';
-                    heart.style.animationDelay = (Math.random() * 1.2) + 's';
+                    heart.style.fontSize = (Math.random() * 18 + 12) + 'px';
+                    heart.style.animationDuration = (Math.random() * 6 + 2) + 's';
+                    heart.style.animationDelay = (Math.random() * 1) + 's';
                     container.appendChild(heart);
                     
                     setTimeout(() => {
                         if (heart.parentNode === container) container.removeChild(heart);
                     }, parseFloat(heart.style.animationDuration) * 1000);
-                }, i * 120);
+                }, i * 100);
             }
             
-            // Add sparkles
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 6; i++) {
                 setTimeout(() => {
                     const sparkle = document.createElement('div');
                     sparkle.className = 'sparkle';
                     sparkle.style.left = Math.random() * 100 + '%';
                     sparkle.style.top = Math.random() * 100 + '%';
-                    sparkle.style.animationDelay = (Math.random() * 1) + 's';
+                    sparkle.style.animationDelay = (Math.random() * 0.8) + 's';
                     container.appendChild(sparkle);
                     
                     setTimeout(() => {
                         if (sparkle.parentNode === container) container.removeChild(sparkle);
-                    }, 1500);
+                    }, 1800);
+                }, i * 150);
+            }
+        }
+        
+        function createBloom(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            const bloomCount = 8;
+            
+            for (let i = 0; i < bloomCount; i++) {
+                setTimeout(() => {
+                    const bloom = document.createElement('div');
+                    bloom.className = 'bloom-particle';
+                    bloom.style.left = Math.random() * 100 + '%';
+                    bloom.style.top = Math.random() * 100 + '%';
+                    bloom.style.animationDelay = (Math.random() * 1) + 's';
+                    container.appendChild(bloom);
+                    
+                    setTimeout(() => {
+                        if (bloom.parentNode === container) container.removeChild(bloom);
+                    }, 2000);
                 }, i * 200);
             }
         }
@@ -985,9 +1102,9 @@
         }
         
         function createConfetti() {
-            const colors = ['#ff6b9b', '#ffe4ec', '#c2185b', '#fed7e2', '#fff1f5'];
-            const shapes = ['❀', '❤', '✿'];
-            const confettiCount = 50;
+            const colors = ['#ff7597', '#fff0f5', '#b0004d', '#ffccd5', '#ffebf0'];
+            const shapes = ['❤', '❀', '✿'];
+            const confettiCount = 60;
             
             for (let i = 0; i < confettiCount; i++) {
                 setTimeout(() => {
@@ -996,21 +1113,24 @@
                     confetti.style.left = Math.random() * 100 + 'vw';
                     confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
                     confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
-                    confetti.style.fontSize = (Math.random() * 16 + 10) + 'px';
-                    confetti.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+                    confetti.style.fontSize = (Math.random() * 18 + 12) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 1.8 + 1.2) + 's';
                     document.body.appendChild(confetti);
                     
-                    setTimeout(() => confetti.remove(), 2000);
-                }, i * 20);
+                    setTimeout(() => confetti.remove(), 1800);
+                }, i * 15);
             }
         }
         
         createHearts('welcome-hearts');
+        createBloom('welcome-bloom');
         
         setInterval(() => {
             const activeHearts = sections[currentSection].querySelector('.floating-hearts').id;
+            const activeBloom = sections[currentSection].querySelector('.bloom-effect').id;
             createHearts(activeHearts);
-        }, 2000);
+            createBloom(activeBloom);
+        }, 1800);
     </script>
 </body>
 </html>

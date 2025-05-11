@@ -6,7 +6,7 @@
     <title>My Heart's Journey to You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@200;300;400;600&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@200;300;400;600&family=Playfair+Display:wght@400;700&family=Great_Vibes&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-heart: #ff8c94;
@@ -739,41 +739,49 @@
         }
 
         .music-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.9);
-            border: 2px solid var(--color-heart);
-            color: var(--color-accent);
-            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, var(--color-heart), var(--color-accent));
+            color: white;
+            padding: 1rem 2rem;
             border-radius: 40px;
+            border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-family: 'Caveat', cursive;
             transition: all 0.5s ease;
+            box-shadow: var(--shadow-glow);
             z-index: 100;
+            margin: 1.5rem auto;
         }
 
         .music-toggle:hover {
-            background: var(--color-heart);
-            color: white;
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-3px) scale(1.03);
+            background: linear-gradient(45deg, var(--color-accent), var(--color-heart));
+            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.3);
         }
 
         .music-toggle::before {
             content: '♥';
             margin-right: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             animation: heartbeat 1.4s infinite;
+        }
+
+        .music-toggle.fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <audio id="bgm" autoplay loop>
-        <source src="https://drive.google.com/uc?export=download&id=1gVeM383LwdQQBDjLG3zhn9o2uXzosvzC" type="audio/mp3">
+    <audio id="bgm" loop>
+        <source src="https://filebin.net/fvajwx7vd1ef2x8d/those_eyes.mp3" type="audio/mp3">
+        <!-- If Google Drive fails, upload to Filebin (https://filebin.net/) and replace with: -->
+        <!-- <source src="https://filebin.net/xxx/those-eyes.mp3" type="audio/mp3"> -->
         Your browser does not support the audio element.
     </audio>
-    <button id="music-toggle" class="music-toggle">Pause Music</button>
+    <button id="music-toggle" class="music-toggle">Play Music</button>
 
     <div id="intro-animation">
         <svg id="flower-svg" viewBox="0 0 120 120">
@@ -813,7 +821,7 @@
         <h1>This is my heart's journey to you</h1>
         <p>I may not be your first, but you're the first to hold my heart this way.</p>
         <p>Every moment with you feels like the beginning of something I’ve waited my whole life to feel.</p>
-        <p>Let "Those Eyes" fill the air as you explore my heart's journey for you.</p>
+        <p>Click "Play Music" to let "Those Eyes" set the mood for our journey.</p>
         <button id="start-btn" class="btn">Let me show you how deep my love goes</button>
     </section>
     
@@ -958,37 +966,63 @@
         // Music control
         const bgm = document.getElementById('bgm');
         const musicToggle = document.getElementById('music-toggle');
-        bgm.play().catch(() => {
-            console.log("Autoplay blocked, user interaction required");
+        const skipIntroBtn = document.getElementById('skip-intro');
+        const startBtn = document.getElementById('start-btn');
+
+        function playMusic() {
+            bgm.play().then(() => {
+                musicToggle.textContent = 'Pause Music';
+            }).catch((error) => {
+                console.error('Playback failed:', error);
+                musicToggle.textContent = 'Play Music';
+                if (error.name === 'NotAllowedError') {
+                    alert('Please click "Play Music" to start the song, as browsers require interaction for audio playback.');
+                } else {
+                    alert('Could not play the song. Please try clicking "Play Music" or ensure your browser allows audio. Error: ' + error.message);
+                }
+            });
+        }
+
+        bgm.onerror = () => {
+            console.error('Audio loading failed. Possible CORS or file issue.');
             musicToggle.textContent = 'Play Music';
-        });
+            alert('Failed to load the song. Please try clicking "Play Music" or contact support if the issue persists.');
+        };
+
         musicToggle.addEventListener('click', () => {
             if (bgm.paused) {
-                bgm.play();
-                musicToggle.textContent = 'Pause Music';
+                playMusic();
             } else {
                 bgm.pause();
                 musicToggle.textContent = 'Play Music';
             }
         });
 
+        skipIntroBtn.addEventListener('click', () => {
+            startMainContent();
+            playMusic();
+        });
+
+        startBtn.addEventListener('click', () => {
+            navigateTo(1);
+            playMusic();
+        });
+
         sections.forEach(section => section.classList.remove('active'));
         
         const introAnimation = document.getElementById('intro-animation');
-        const skipIntroBtn = document.getElementById('skip-intro');
-        
+
         function startMainContent() {
             introAnimation.style.opacity = '0';
             setTimeout(() => {
                 introAnimation.style.display = 'none';
+                musicToggle.classList.add('fixed');
                 showSection(0);
             }, 2000);
         }
-        
-        skipIntroBtn.addEventListener('click', startMainContent);
+
         setTimeout(startMainContent, 8000);
         
-        document.getElementById('start-btn').addEventListener('click', () => navigateTo(1));
         document.getElementById('to-memories-btn').addEventListener('click', () => navigateTo(2));
         document.getElementById('to-love-meter-btn').addEventListener('click', () => navigateTo(3));
         document.getElementById('to-promises-btn').addEventListener('click', () => navigateTo(4));
